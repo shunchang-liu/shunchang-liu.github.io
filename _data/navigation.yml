@@ -4,6 +4,6 @@ pages:
 - name: Home
   url: /
 - name: Research
-  url: /research
+  url: /research/
 - name: Blog
-  url: /blog
+  url: /blog/
