@@ -1,0 +1,9 @@
+program_committee:
+  - Frontiers of Computer Science
+  - IEEE Transactions on Intelligent Transportation Systems (T-ITS)
+  - "Workshops: ICML MoFA, CVPR AdvCV"
+
+teaching_assistant:
+  - course: Machine Learning
+    university: EPFL
+    term: Fall 2025

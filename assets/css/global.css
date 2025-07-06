@@ -90,3 +90,11 @@ div.lazy {
     font-family: Courier, monospace;
 }
 
+.education-list .education-logo {
+  width: 35px;       
+  height: auto;
+}
+
+.education-list .education-name {
+  font-size: 0.9rem;  
+}

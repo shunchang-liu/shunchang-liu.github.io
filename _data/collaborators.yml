@@ -1,0 +1,38 @@
+labs:
+  - name: Learning & Adaptive Systems Group, ETH Zurich
+    url: https://las.inf.ethz.ch/
+    duration: 2025
+    position: Semester Project
+    supervisor: Prof. Andreas Krause
+
+  - name: Artificial Intelligence Laboratory, EPFL
+    url: https://www.epfl.ch/labs/lia/
+    duration: 2024
+    position: Semester Project
+    supervisor: Prof. Boi Faltings
+
+  - name: Secure Learning Lab, UIUC
+    url: https://aisecure.github.io/GROUP/
+    duration: 2023
+    position: Remote Intern
+    supervisor: Prof. Bo Li
+
+  - name: CCVL (Computational Cognition, Vision, and Learning) Group, JHU
+    url: https://ccvl.jhu.edu/
+    duration: 2023
+    position: Summer Intern
+    supervisor: Prof. Alan Yuille
+
+collaborators:
+  - name: Dr. Xin Chen (Cynthia)
+    url: https://www.xccyn.com/
+    affiliation: ETH Zurich
+
+  - name: Dr. Belen Martin-Urcelay
+    url: https://belenmu.github.io/
+    affiliation: Georgia Tech
+
+  - name: Dr. Zhuan Shi
+    url: https://scholar.google.com/citations?user=Ref14osAAAAJ
+    affiliation: Mila - Quebec AI Institute
+

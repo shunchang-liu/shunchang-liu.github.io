@@ -1,32 +1,81 @@
 ---
 layout: default
-title : Publications
-navbar_title: Publications
+title : Research
+navbar_title: Research
+permalink: /research/
 body_attr: >-
   data-spy="scroll" data-target="#navbar-year" data-offset="100"
 ---
 
+<!-- ========= SECTION 1: Publications ========= -->
+<h2 class="pt-3 pb-2">Publications</h2>
 {% assign pubs_by_year = site.publications | sort: "date" | reverse | group_by_exp: "item", "item.date | date: '%Y'" %}
-
 <div class="row">
-    <div class="col-12 col-lg-10">
-        {% for year in pubs_by_year %}
-        {% assign num_papers = year.items | size %}
-        <h2 class="pt-4" id="year-{{ year.name }}">{{ year.name }}</h2>
-        <div class="my-0 p-0 bg-white shadow-sm rounded-xl">
-            {% for item in year.items %}
-                {% include widgets/publication_item.html item=item hide_bottom_border=forloop.last first=forloop.first last=forloop.last %}
-            {% endfor %}
-        </div>
-        {% endfor %}
+  <div class="col-12 col-lg-10">
+    {% for year in pubs_by_year %}
+    <h3 class="pt-4" id="year-{{ year.name }}">{{ year.name }}</h3>
+    <div class="my-0 p-0 bg-white shadow-sm rounded-xl">
+      {% for item in year.items %}
+        {% include widgets/publication_item.html
+           item=item hide_bottom_border=forloop.last first=forloop.first last=forloop.last %}
+      {% endfor %}
     </div>
-
-    <div class="col-2 d-none d-lg-block">
-        <div id="navbar-year" class="nav nav-pills flex-column sticky-top" style="top: 80px">
-            {% for year in pubs_by_year %}
-            <a class="nav-link d-block" href="#year-{{ year.name }}">{{ year.name }}</a>
-            {% endfor %}
-        </div>
+    {% endfor %}
+  </div>
+  <div class="col-2 d-none d-lg-block">
+    <div id="navbar-year" class="nav nav-pills flex-column sticky-top" style="top: 80px">
+      {% for year in pubs_by_year %}
+      <a class="nav-link d-block" href="#year-{{ year.name }}">{{ year.name }}</a>
+      {% endfor %}
     </div>
+  </div>
+</div>
 
+<!-- ========= SECTION 2: Service ========= -->
+<h2 class="pt-5 pb-2">Academic Service</h2>
+<div class="row">
+  <div class="col-12 col-lg-10">
+    <div class="card border-0 shadow-sm bg-white mb-4">
+      <div class="card-body p-4">
+        <h5>Program Committee / Reviewer</h5>
+        <ul>
+          {% for item in site.data.service.program_committee %}
+            <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+        <h5 class="mt-3">Teaching Assistant</h5>
+        <ul>
+          {% for ta in site.data.service.teaching_assistant %}
+            <li>{{ ta.university }} – {{ ta.course }} ({{ ta.term }})</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========= SECTION 3: Lab & Collaborators ========= -->
+<h2 class="pt-5 pb-2">Lab &amp; Collaborators</h2>
+<div class="row">
+  <div class="col-12 col-lg-10">
+    <div class="card border-0 shadow-sm bg-white mb-4">
+      <div class="card-body p-4">
+        <h5>Labs I’ve Worked At</h5>
+        <ul>
+          {% for lab in site.data.collaborators.labs %}
+            <li>
+              <a href="{{ lab.url }}" target="_blank">{{ lab.name }}</a> – {{ lab.position }}
+              ({{ lab.duration }}, Supervisor: {{ lab.supervisor }})
+            </li>
+          {% endfor %}
+        </ul>
+        <h5 class="mt-3">Collaborators & Friends</h5>
+        <ul>
+          {% for person in site.data.collaborators.collaborators %}
+            <li><a href="{{ person.url }}" target="_blank">{{ person.name }}</a> – {{ person.affiliation }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>

@@ -7,12 +7,14 @@
                     <div class="col-md-6">
                         <div class="mx-2 my-1">
                             <h6>Education</h6>
-                            <ul class="list-unstyled mb-1">
+                            <!-- 加了 education-list 标识 -->
+                            <ul class="list-unstyled mb-1 education-list">
                                 {% for item in site.data.profile.education %}
                                 <li class="media mb-1">
-                                    <img src="{{ item.logo | relative_url }}" alt="{{ item.name }}" style="width: 18px;" class="mr-1 mt-1">
+                                    <img src="{{ item.logo | relative_url }}" alt="{{ item.name }}"
+                                        class="education-logo mr-1 mt-1">
                                     <div class="media-body">
-                                        <div>{{ item.name }}</div>
+                                        <div class="education-name">{{ item.name }}</div>
                                         <div class="small">{{ item.dept }}</div>
                                         <div class="small d-flex">
                                             <div>{{ item.position }}</div>
@@ -25,6 +27,7 @@
                         </div>
                     </div>
                     {% endif %}
+
 
                     {% if site.data.profile.experience %}
                     <div class="col-md-6">
@@ -49,16 +52,25 @@
                     </div>
                     {% endif %}
 
-                    {% if site.data.profile.awards %}
+                    {% if site.data.profile.intern %}
                     <div class="col-md-6">
                         <div class="mx-2 my-1">
-                            <h6>Honors & Awards</h6>
-                            <ul class="list small pl-3 mb-1">
-                                {% for item in site.data.profile.awards %}
-                                <li>
-                                    <div class="d-flex">
-                                        <div>{{ item.name }}</div>
-                                        <div class="ml-auto mt-auto no-break"><em>{{ item.date }}</em></div>
+                            <h6>Internship</h6>
+                            <ul class="list-unstyled mb-1">
+                                {% for item in site.data.profile.intern %}
+                                <li class="media mb-1 align-items-center">
+                                    <img src="{{ item.logo | relative_url }}" alt="{{ item.name }}" style="width: 100px; height: 27px;" class="mr-2">
+                                    <div class="media-body">
+                                        <div class="d-flex align-items-center">
+                                            <div class="font-weight-normal" style="font-size: 0.90rem;">{{ item.name }}</div>
+                                            <div class="mt-auto ml-auto no-break" style="font-size: 0.75rem;"><em>{{ item.date }}</em></div>
+                                        </div>
+                                        {% if item.dept %}
+                                        <div class="small text-muted">{{ item.dept }}</div>
+                                        {% endif %}
+                                        {% if item.position %}
+                                        <div class="small">{{ item.position }}</div>
+                                        {% endif %}
                                     </div>
                                 </li>
                                 {% endfor %}
@@ -66,6 +78,9 @@
                         </div>
                     </div>
                     {% endif %}
+
+
+
 
                 </div>
 

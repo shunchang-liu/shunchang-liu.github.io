@@ -1,17 +1,15 @@
 ---
-title:          "Lorem ipsum: Dolor sit amet, consectetur adipiscing elit"
-date:           2023-01-05 00:01:00 +0800
-selected:       true
-pub:            "Nature Communications"
+title:          "Boosting Cross-task Transferability of Adversarial Patches with Visual Relations"
+date:           2023-06-05 00:01:00 +0800
+selected:       false
+pub:            "IEEE/CVF Conference on Computer Vision and Pattern Recognition (<strong>CVPR</strong>) @AdvCV Workshop"
 pub_date:       "2023"
-abstract: >-
-  Cover image is a photo by Thomas Renaud on Unsplash. The abstract of the publication is meant to be a TLDR (very brief summary with 1~2 sentences) of your paper.
-cover:          /assets/images/covers/cover1.jpg
+cover:          /assets/images/covers/2023-p1.png
 authors:
-- Your Name*
-- Robert White*
-- John Doe
-- Charles Green (Stanford)
+- Tony Ma
+- Songze Li
+- Yisong Xiao
+- <strong>Shunchang Liu</strong>#
 links:
-  Paper: https://www.cell.com
+  Paper: https://arxiv.org/abs/2304.05402
 ---
