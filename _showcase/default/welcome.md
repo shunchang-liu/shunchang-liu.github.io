@@ -10,7 +10,6 @@ date: 2025-07-09 00:01:00 +0800
     <p>
         I’ve written a few papers before, but to be honest, they just show that I can handle basic research and put together decent summaries. I haven’t really done anything that feels truly satisfying to me yet. What I’m always chasing is research that feels <strong>simple and beautiful</strong>—whether that’s in the ideas, the structure, or how it’s expressed through code, writing, or visuals. I tend to trust my sense of aesthetics, which isn’t fixed—it grows and changes with new experiences and feedback. That’s what keeps me curious and excited to learn. And it’s exactly why I decided to do a PhD—I really want to see how far I can go.
     </p>
-
     <p>
         Some people might say I’m an idealist (I don’t love labels, but fair enough). I like to think of my life as a journey with three stages:
     </p>
