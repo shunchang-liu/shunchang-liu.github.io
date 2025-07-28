@@ -66,4 +66,8 @@ intern:
 - name: Concordia AI
   logo: /assets/images/badges/cropped-logo-concordia-ai-1.png
   date: 2024 - 2025
-
+  achievements:
+      - title: Frontier AI Risk Management Framework
+        link: https://concordia-ai.com/research/frontier-ai-risk-management-framework/
+      - title: Responsible Innovation in AI × Life Sciences
+        link: https://concordia-ai.com/research/responsible-innovation-in-ai-x-life-sciences/
