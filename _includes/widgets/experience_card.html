@@ -80,13 +80,14 @@
                             {% endif %}
 
                             {% if item.achievements %}
-                            <div class="mt-2">
-                                <h6>Achievements</h6>
-                                <ul class="list-unstyled mb-0">
+                            <div class="mt-2 d-flex align-items-center">
+                                <div style="font-size: 0.75rem; font-weight: 500; margin-right: 0.5rem;">
+                                Achievements:
+                                </div>
+                                <ul class="list-inline mb-0">
                                 {% for ach in item.achievements %}
-                                <li>
-                                    <a href="{{ ach.link }}"
-                                    target="_blank">{{ ach.title }}</a>
+                                <li class="list-inline-item" style="font-size: 0.75rem; margin-right: 1rem;">
+                                    <a href="{{ ach.link }}" target="_blank">{{ ach.title }}</a>
                                 </li>
                                 {% endfor %}
                                 </ul>
@@ -100,10 +101,6 @@
                     </div>
                     </div>
                     {% endif %}
-
-
-
-
 
                 </div>
 
