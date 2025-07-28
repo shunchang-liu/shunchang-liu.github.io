@@ -80,17 +80,13 @@
                             {% endif %}
 
                             {% if item.achievements %}
-                            <div class="mt-2 d-flex align-items-center">
-                                <div style="font-size: 0.75rem; font-weight: 500; margin-right: 0.5rem;">
-                                Achievements:
-                                </div>
-                                <ul class="list-inline mb-0">
+                            <div class="mt-2" style="font-size: 0.75rem;">
+                                <span style="font-weight:500; margin-right:0.5rem;">
+                                Contributions:
+                                </span>
                                 {% for ach in item.achievements %}
-                                <li class="list-inline-item" style="font-size: 0.75rem; margin-right: 1rem;">
-                                    <a href="{{ ach.link }}" target="_blank">{{ ach.title }}</a>
-                                </li>
+                                <a href="{{ ach.link }}" target="_blank">{{ ach.title }}</a>{% if forloop.last == false %}<span style="margin: 0 0.5rem;">|</span>{% endif %}
                                 {% endfor %}
-                                </ul>
                             </div>
                             {% endif %}
 
@@ -101,6 +97,7 @@
                     </div>
                     </div>
                     {% endif %}
+
 
                 </div>
 
