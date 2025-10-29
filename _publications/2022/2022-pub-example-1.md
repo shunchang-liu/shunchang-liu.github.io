@@ -19,5 +19,5 @@ authors:
 links:
   Code: https://github.com/shunchang-liu/PAP-Pytorch
   Paper: https://dl.acm.org/doi/abs/10.1145/3548606.3560566
-  Oral Pre: https://www.bilibili.com/video/BV1Dt4y1T7Au/
+  Video: https://www.bilibili.com/video/BV1Dt4y1T7Au/
 ---

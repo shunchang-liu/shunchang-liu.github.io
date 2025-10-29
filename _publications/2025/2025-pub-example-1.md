@@ -18,6 +18,7 @@ authors:
 links:
   Paper: https://arxiv.org/abs/2502.15278
   Code: https://github.com/shunchang-liu/CopyJudge
+  Video:  https://b23.tv/haX2ET8
 
 note: Thanks for Anderson's insightful <a href="https://www.unite.ai/automating-copyright-protection-in-ai-generated-images/" target="_blank">commentary</a> and sharing (<a href="https://blog.naver.com/kcc_press/223800260251?trackingCode=rss" target="_blank">1</a>, <a href="https://blog.naver.com/kcc_press/223911238484?trackingCode=rss" target="_blank">2</a>) by the Korea Copyright Commission.
 
