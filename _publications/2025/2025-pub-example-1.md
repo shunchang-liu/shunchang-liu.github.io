@@ -17,7 +17,7 @@ authors:
   - Boi Faltings
 links:
   Paper: https://arxiv.org/abs/2502.15278
-  Code: TBD #https://github.com/luost26/academic-homepage
+  Code: https://github.com/shunchang-liu/CopyJudge
 
 note: Thanks for Anderson's insightful <a href="https://www.unite.ai/automating-copyright-protection-in-ai-generated-images/" target="_blank">commentary</a> and sharing (<a href="https://blog.naver.com/kcc_press/223800260251?trackingCode=rss" target="_blank">1</a>, <a href="https://blog.naver.com/kcc_press/223911238484?trackingCode=rss" target="_blank">2</a>) by the Korea Copyright Commission.
 
