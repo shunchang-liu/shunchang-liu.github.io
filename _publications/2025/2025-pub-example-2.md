@@ -16,7 +16,7 @@ authors:
   - Alessandro Blasimme
   - Sara Kijewski
 links:
-  Paper: https://openreview.net/forum?id=mhtDi2d4ZC
-  Code: TBD
+  Paper: https://arxiv.org/abs/2511.00924
+  Code: https://github.com/Jeffateth/Biased_Oracle
 
 ---
