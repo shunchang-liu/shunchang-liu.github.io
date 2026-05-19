@@ -1,7 +1,8 @@
 program_committee:
+  - NeurIPS 2026
   - Frontiers of Computer Science
   - IEEE Transactions on Intelligent Transportation Systems (T-ITS)
-  - "Workshops: ICML MoFA, CVPR AdvCV"
+  - "Workshops: ICML MoFA, CVPR AdvCV, ICML 2026 CompLearn"
 
 teaching_assistant:
   - course: Machine Learning

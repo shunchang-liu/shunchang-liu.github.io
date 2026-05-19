@@ -1,4 +1,10 @@
 labs:
+  - name: Security and Privacy Lab (SPY), ETH Zurich
+    url: https://spylab.ai/
+    duration: 2026
+    position: Master's Thesis
+    supervisor: Prof. Florian Tramèr
+
   - name: Learning & Adaptive Systems Group, ETH Zurich
     url: https://las.inf.ethz.ch/
     duration: 2025
@@ -24,15 +30,23 @@ labs:
     supervisor: Prof. Alan Yuille
 
 collaborators:
-  - name: Dr. Xin Chen (Cynthia)
+  - name: Francesco Croce
+    url: https://fra31.github.io/
+    affiliation: Aalto University
+
+  - name: Lukas Fluri
+    url: https://lukas-fluri.com/
+    affiliation: ETH Zurich
+
+  - name: Xin Chen (Cynthia)
     url: https://www.xccyn.com/
     affiliation: ETH Zurich
 
-  - name: Dr. Belen Martin-Urcelay
+  - name: Belen Martin-Urcelay
     url: https://belenmu.github.io/
     affiliation: Georgia Tech
 
-  - name: Dr. Zhuan Shi
+  - name: Zhuan Shi
     url: https://scholar.google.com/citations?user=Ref14osAAAAJ
     affiliation: Mila - Quebec AI Institute
 
