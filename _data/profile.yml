@@ -1,10 +1,10 @@
-primary_name: "Shunchang Liu"
+﻿primary_name: "Shunchang Liu"
 secondary_name: ""
 navbar_name: "Shunchang's Homepage"
 
 positions:
 #- logo: /assets/images/badges/epfl-logo.svg  # Logo is optional
-#- logo: /assets/images/badges/ETH_Zürich_Logo_black.svg.png
+#- logo: /assets/images/badges/ETH_Z眉rich_Logo_black.svg.png
 
 
 email: "shunchangliu@outlook.com"
@@ -22,10 +22,10 @@ cv_link: "/assets/files/CV_Shunchang-Liu.pdf"
 short_bio_text_justify: false
 short_bio: >-
   <p>
-    Hi! I'm Shunchang (顺昌), currently pursuing a joint Master's degree in Cybersecurity at
+    Hi! I'm Shunchang (椤烘槍), currently pursuing a joint鈥疢aster's degree in Cybersecurity at
     <a href="https://www.epfl.ch" target="_blank">EPFL</a> and
-    <a href="https://www.ethz.ch" target="_blank">ETH Zurich</a>.
-    My research focuses on AI Safety & Alignment.
+    <a href="https://www.ethz.ch" target="_blank">ETH聽Zurich</a>.
+    My research focuses on AI聽Safety聽& Alignment.
     I am always driven by the long-term goal of building <em>explainable</em> and <em>provable</em> safe AI systems.
   </p>
   <p>
@@ -35,27 +35,22 @@ short_bio: >-
     <a href="https://las.inf.ethz.ch/krausea" target="_blank">Prof. Andreas Krause</a> and
     <a href="https://www.floriantramer.com/" target="_blank">Prof. Florian Tramer</a> at ETH Zurich.
   </p>
-  <p>
-    <strong style="color: red;">
-      I am actively looking for PhD or industry opportunities starting Fall 2026. Please feel free to contact me</a>!
-    </strong>
-  </p>
 
 portrait_url: /assets/images/photos/portrait2.jpg
 # portrait_caption: >-
 #  Photo by Manja Vitolic on Unsplash (this caption is optional, comment it out to disable).
 
 education:
-- name: École Polytechnique Fédérale de Lausanne
+- name: 脡cole Polytechnique F茅d茅rale de Lausanne
   logo: /assets/images/badges/epfl-logo.svg
   position: >-
     M.S. in Cybersecurity
-  date: Sep. 2024 – present
-- name: Eidgenössische Technische Hochschule Zürich
-  logo: /assets/images/badges/ETH_Zürich_Logo_black.svg.png
+  date: Sep.聽2024聽鈥?present
+- name: Eidgen枚ssische Technische Hochschule Z眉rich
+  logo: /assets/images/badges/ETH_Z眉rich_Logo_black.svg.png
   position: >-
     M.S. in Cybersecurity
-  date: Sep. 2024 – present
+  date: Sep.聽2024聽鈥?present
 
 # experience:
 # - name: Peking University
@@ -70,5 +65,5 @@ intern:
   achievements:
       - title: Frontier AI Risk Management Framework
         link: https://concordia-ai.com/research/frontier-ai-risk-management-framework/
-      - title: Responsible Innovation in AI × Life Sciences
+      - title: Responsible Innovation in AI 脳 Life Sciences
         link: https://concordia-ai.com/research/responsible-innovation-in-ai-x-life-sciences/
