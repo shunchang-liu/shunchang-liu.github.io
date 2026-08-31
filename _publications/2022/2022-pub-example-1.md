@@ -2,7 +2,7 @@
 title:          "Harnessing Perceptual Adversarial Patches for Crowd Counting"
 date:           2022-11-7 00:01:00 +0800
 selected:       true
-pub:            "ACM SIGSAC Conference on Computer and Communications Security (<strong>CCS</strong>)"
+pub:            "ACM SIGSAC Conference on Computer and Communications Security (CCS)"
 # pub_pre:        "Submitted to "
 pub_post:       ","
 # pub_last:       ' <span class="badge badge-pill badge-publication badge-success">Spotlight</span>'

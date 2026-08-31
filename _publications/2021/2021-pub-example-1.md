@@ -2,7 +2,7 @@
 title:          "Dual Attention Suppression Attack: Generate Adversarial Camouflage in Physical World"
 date:           2021-06-12 00:01:00 +0800
 selected:       false
-pub:            "IEEE/CVF Conference on Computer Vision and Pattern Recognition (<strong>CVPR</strong>)"
+pub:            "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)"
 # pub_pre:        "Submitted to "
 pub_post:       ","
 pub_last:       ' <span class="badge badge-pill badge-publication badge-success">Oral</span>'

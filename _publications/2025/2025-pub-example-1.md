@@ -3,7 +3,7 @@ title:          "CopyJudge: Automated Copyright Infringement Identification
 and Mitigation in Text-to-Image Diffusion Models"
 date:           2025-07-06 00:01:00 +0800
 selected:       true
-pub:            "ACM International Conference on Multimedia (<strong>MM</strong>)"
+pub:            "ACM International Conference on Multimedia (MM)"
 # pub_pre:        "Submitted to "
 pub_post:       ","
 # pub_last:       ' <span class="badge badge-pill badge-publication badge-success">Spotlight</span>'

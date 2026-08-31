@@ -2,7 +2,7 @@
 title:          "Revisiting Audio Visual Scene-Aware Dialog"
 date:           2022-07-28 00:01:00 +0800
 selected:       false
-pub:            "<strong>Neurocomputing</strong>"
+pub:            "Neurocomputing"
 # pub_pre:        "Submitted to "
 pub_post:       ","
 # pub_last:       ' <span class="badge badge-pill badge-publication badge-success">Spotlight</span>'
