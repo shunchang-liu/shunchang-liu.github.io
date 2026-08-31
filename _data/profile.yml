@@ -22,11 +22,19 @@ cv_link: "/assets/files/CV_Shunchang-Liu.pdf"
 short_bio_text_justify: false
 short_bio: >-
   <p>
-    Hi! I'm Shunchang (顺昌), currently pursuing a joint Master's degree in Cybersecurity at
-    <a href="https://www.epfl.ch" target="_blank">EPFL</a> and
+    Hi! I'm Shunchang (顺昌), a PhD student in the
+    <a href="https://tml.epfl.ch/" target="_blank">Theory of Machine Learning (TML) Lab</a> at
+    <a href="https://www.epfl.ch" target="_blank">EPFL</a>, advised by
+    <a href="https://people.epfl.ch/nicolas.flammarion" target="_blank">Prof. Nicolas Flammarion</a> and
+    co-supervised by
+    <a href="https://fra31.github.io/" target="_blank">Dr. Francesco Croce</a>.
+    Before starting my PhD, I completed a joint Master's degree in Cybersecurity at EPFL and
     <a href="https://www.ethz.ch" target="_blank">ETH Zurich</a>.
-    My research focuses on AI Safety & Alignment.
-    I am always driven by the long-term goal of building <em>explainable</em> and <em>provable</em> safe AI systems.
+  </p>
+  <p>
+    My research focuses on <strong>AI Alignment</strong>. I'm currently most interested in the
+    underlying principles of alignment, that is, understanding and controlling model behavior from
+    first principles. Previously, I worked on more applied research around AI safety and copyright.
   </p>
   <p>
     I'm honored to collaborate closely with
@@ -49,13 +57,18 @@ education:
 - name: École Polytechnique Fédérale de Lausanne
   logo: /assets/images/badges/epfl-logo.svg
   position: >-
+    Ph.D. in Computer Science
+  date: Sep. 2026 – present
+- name: École Polytechnique Fédérale de Lausanne
+  logo: /assets/images/badges/epfl-logo.svg
+  position: >-
     M.S. in Cybersecurity
-  date: Sep. 2024 – present
+  date: Sep. 2024 – Aug. 2026
 - name: Eidgenössische Technische Hochschule Zürich
   logo: /assets/images/badges/ETH_Zürich_Logo_black.svg.png
   position: >-
     M.S. in Cybersecurity
-  date: Sep. 2024 – present
+  date: Sep. 2024 – Aug. 2026
 
 # experience:
 # - name: Peking University
