@@ -4,7 +4,7 @@ date:           2021-06-12 00:01:00 +0800
 selected:       false
 pub:            "IEEE/CVF Conference on Computer Vision and Pattern Recognition (<strong>CVPR</strong>)"
 # pub_pre:        "Submitted to "
-# pub_post:       'Under review.'
+pub_post:       ","
 pub_last:       ' <span class="badge badge-pill badge-publication badge-success">Oral</span>'
 pub_date:       "2021"
 cover: /assets/images/covers/2021-p1.png

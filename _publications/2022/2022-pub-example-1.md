@@ -4,7 +4,7 @@ date:           2022-11-7 00:01:00 +0800
 selected:       true
 pub:            "ACM SIGSAC Conference on Computer and Communications Security (<strong>CCS</strong>)"
 # pub_pre:        "Submitted to "
-# pub_post:       'Under review.'
+pub_post:       ","
 # pub_last:       ' <span class="badge badge-pill badge-publication badge-success">Spotlight</span>'
 pub_date:       "2022"
 cover:          /assets/images/covers/2022-p1.png

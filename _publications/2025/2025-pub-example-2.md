@@ -4,7 +4,7 @@ date:           2025-10-29 00:01:00 +0800
 selected:       false
 pub:            "<strong>NeurIPS</strong> @GenAI4Health Workshop"
 # pub_pre:        "Submitted to "
-# pub_post:       'Under review.'
+pub_post:       ","
 # pub_last:       ' <span class="badge badge-pill badge-publication badge-success">Spotlight</span>'
 pub_date:       "2025"
 cover:          /assets/images/covers/2025-p2.png

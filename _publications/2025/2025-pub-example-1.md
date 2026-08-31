@@ -5,7 +5,7 @@ date:           2025-07-06 00:01:00 +0800
 selected:       true
 pub:            "ACM International Conference on Multimedia (<strong>MM</strong>)"
 # pub_pre:        "Submitted to "
-# pub_post:       'Under review.'
+pub_post:       ","
 # pub_last:       ' <span class="badge badge-pill badge-publication badge-success">Spotlight</span>'
 pub_date:       "2025"
 cover:          /assets/images/covers/2025-p1.png
