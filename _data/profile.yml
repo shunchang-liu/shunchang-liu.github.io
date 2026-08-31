@@ -23,18 +23,18 @@ short_bio_text_justify: false
 short_bio: >-
   <p>
     Hi! I'm Shunchang (顺昌), a PhD student in the
-    <a href="https://tml.epfl.ch/" target="_blank">Theory of Machine Learning (TML) Lab</a> at
-    <a href="https://www.epfl.ch" target="_blank">EPFL</a>, advised by
+    <a href="https://tml.epfl.ch/" target="_blank">Theory of Machine Learning (TML) Lab</a> at EPFL,
+    advised by
     <a href="https://people.epfl.ch/nicolas.flammarion" target="_blank">Prof. Nicolas Flammarion</a> and
     co-supervised by
-    <a href="https://fra31.github.io/" target="_blank">Dr. Francesco Croce</a>.
-    Before starting my PhD, I completed a joint Master's degree in Cybersecurity at EPFL and
-    <a href="https://www.ethz.ch" target="_blank">ETH Zurich</a>.
+    <a href="https://fra31.github.io/" target="_blank">Prof. Francesco Croce</a>.
+    Before starting my PhD, I completed a joint Master's degree in Cybersecurity at EPFL and ETH Zurich.
   </p>
   <p>
     My research focuses on <strong>AI Alignment</strong>. I'm currently most interested in the
-    underlying principles of alignment, that is, understanding and controlling model behavior from
-    first principles. Previously, I worked on more applied research around AI safety and copyright.
+    underlying principles of alignment, that is, understanding why models exhibit misaligned
+    behaviors that deviate from human expectations, and how to control them from first principles.
+    I've also worked on AI safety and copyright.
   </p>
   <p>
     I'm honored to collaborate closely with
