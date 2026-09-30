@@ -1,11 +1,11 @@
 labs:
-  - name: Secure and Private AI (SPY) Lab, ETH Zurich
+  - name: Secure and Private AI (SPY) Lab, ETH Zürich
     url: https://spylab.ai/
     duration: 2026
     position: Master's Thesis
     supervisor: Prof. Florian Tramèr
 
-  - name: Learning & Adaptive Systems Group, ETH Zurich
+  - name: Learning & Adaptive Systems Group, ETH Zürich
     url: https://las.inf.ethz.ch/
     duration: 2025
     position: Semester Project
@@ -36,11 +36,11 @@ collaborators:
 
   - name: Lukas Fluri
     url: https://lukas-fluri.com/
-    affiliation: ETH Zurich
+    affiliation: ETH Zürich
 
   - name: Xin Chen (Cynthia)
     url: https://www.xccyn.com/
-    affiliation: ETH Zurich
+    affiliation: ETH Zürich
 
   - name: Belen Martin-Urcelay
     url: https://belenmu.github.io/
