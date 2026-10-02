@@ -1,20 +1,22 @@
-/* Homepage theme: cool paper, navy ink, and one ink-blue accent.
-   Light is the default; [data-theme="dark"] is opt-in. Change --accent to re-theme. */
+/* Homepage theme: blush paper, navy ink, a blue accent (links, navigation) and a
+   pink accent (venues, selections, the spine). Light is the default;
+   [data-theme="dark"] is opt-in. Change --accent / --accent-2 to re-theme. */
 
 :root {
-    --bg: #f8f8f5;
-    --surface: #eceef2;
-    --ink: #1d2433;
-    --ink-2: #3f4757;
+    --bg: #faf8fb;
+    --surface: #f0ecf3;
+    --ink: #1d2238;
+    --ink-2: #41465c;
     --muted: #646b78;
-    --accent: #2a4a9b;
-    --accent-soft: rgba(42, 74, 155, 0.08);
-    --link-rule: rgba(42, 74, 155, 0.35);
-    --rule: rgba(29, 36, 51, 0.12);
-    --rule-strong: rgba(29, 36, 51, 0.38);
-    --map-low: #c9d4ee;
-    --map-high: #2a4a9b;
-    --spine: rgba(42, 74, 155, 0.06);
+    --accent: #2f4fb3;
+    --accent-2: #b8336a;
+    --accent-2-soft: rgba(184, 51, 106, 0.07);
+    --link-rule: rgba(47, 79, 179, 0.35);
+    --rule: rgba(29, 34, 56, 0.12);
+    --rule-strong: rgba(29, 34, 56, 0.38);
+    --map-low: #cdd7f3;
+    --map-high: #b8336a;
+    --spine: rgba(184, 51, 106, 0.06);
     --serif: "Newsreader", Georgia, "Times New Roman", serif;
     --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
     --profile-width: 560px;
@@ -22,18 +24,19 @@
 }
 
 :root[data-theme="dark"] {
-    --bg: #0f1420;
-    --surface: #1a2133;
-    --ink: #e8ebf2;
-    --ink-2: #c3c9d6;
-    --muted: #8f97a8;
+    --bg: #121522;
+    --surface: #1c2033;
+    --ink: #eceaf2;
+    --ink-2: #c7c8d6;
+    --muted: #9396a8;
     --accent: #8fb0ff;
-    --accent-soft: rgba(143, 176, 255, 0.12);
+    --accent-2: #ff8fc4;
+    --accent-2-soft: rgba(255, 143, 196, 0.12);
     --link-rule: rgba(143, 176, 255, 0.4);
-    --rule: rgba(232, 235, 242, 0.12);
-    --rule-strong: rgba(232, 235, 242, 0.38);
-    --map-low: #2a3550;
-    --map-high: #8fb0ff;
+    --rule: rgba(236, 234, 242, 0.12);
+    --rule-strong: rgba(236, 234, 242, 0.38);
+    --map-low: #2a3352;
+    --map-high: #ff8fc4;
     --spine: rgba(0, 0, 0, 0.4);
     color-scheme: dark;
 }
@@ -395,7 +398,7 @@ html:not(.js) .panel-bar { display: none; }
     color: var(--muted);
 }
 .all-papers[aria-pressed="true"] {
-    color: var(--accent);
+    color: var(--accent-2);
     text-decoration: underline;
     text-underline-offset: 4px;
 }
@@ -421,9 +424,9 @@ html:not(.js) .panel-bar { display: none; }
 }
 .chip:hover { border-color: var(--rule-strong); }
 .chip[aria-pressed="true"] {
-    color: var(--accent);
-    background: var(--accent-soft);
-    border-color: var(--accent);
+    color: var(--accent-2);
+    background: var(--accent-2-soft);
+    border-color: var(--accent-2);
 }
 
 .search {
@@ -463,7 +466,7 @@ html:not(.js) .panel-bar { display: none; }
     font-size: 12.5px;
     font-weight: 500;
     letter-spacing: 0.02em;
-    color: var(--accent);
+    color: var(--accent-2);
 }
 .pub-venue .badge {
     margin-left: 8px;
@@ -489,7 +492,7 @@ html:not(.js) .panel-bar { display: none; }
     padding-left: 4px;
     font-family: var(--sans);
     font-size: 15px;
-    color: var(--accent);
+    color: var(--accent-2);
     vertical-align: 0.35em;
 }
 .pub-summary {
