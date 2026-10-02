@@ -33,7 +33,7 @@
         .then(res => res.text())
         .then(rep => {
             rows = JSON.parse(rep.match(/(?<=\().*(?=\);)/s)[0]).table.rows;
-            document.getElementById("total-visitors").textContent = "Total visitors: " + rows.length;
+            document.getElementById("total-visitors").textContent = rows.length + " visitors so far";
             google.charts.setOnLoadCallback(drawChart);
         });
 

@@ -29,7 +29,7 @@
         <p class="fact-title">{{ current.position }}</p>
         <p class="fact-meta">{{ current.short_name | default: current.name }}</p>
         <p class="fact-small">{{ current.date }}</p>
-        {% if current.advisor %}<p class="fact-small">Advisors: {{ current.advisor }}</p>{% endif %}
+        {% if current.advisor %}<p class="fact-small">Advised by {{ current.advisor }}</p>{% endif %}
         {% if profile.education.size > 1 %}
         <details class="more">
             <summary>More</summary>
@@ -57,7 +57,7 @@
         {% endfor %}
         {% for item in profile.intern %}
         <div class="exp-item">
-            <p class="exp-title">{{ item.name }}</p>
+            <p class="exp-title">{% if item.url %}<a href="{{ item.url }}" target="_blank" rel="noopener">{{ item.name }}</a>{% else %}{{ item.name }}{% endif %}</p>
             <p class="fact-small">{% if item.position %}{{ item.position }} · {% endif %}{{ item.date }}</p>
         </div>
         {% endfor %}

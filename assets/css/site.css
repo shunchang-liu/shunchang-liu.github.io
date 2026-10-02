@@ -556,6 +556,84 @@ html:not(.js) .panel-bar { display: none; }
 }
 .cv-status { padding: 24px 0; }
 
+/* ---- Standalone pages (blog) ------------------------------------------ */
+
+.page {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 40px 96px;
+}
+.page-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--rule);
+}
+.page-home {
+    font-family: var(--serif);
+    font-size: 22px;
+    text-decoration: none;
+}
+.page-nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    font-size: 14.5px;
+}
+.page-nav a { text-decoration: none; padding-bottom: 4px; border-bottom: 1px solid transparent; }
+.page-nav a:hover { border-bottom-color: var(--rule-strong); }
+.page-nav a[aria-current="page"] { border-bottom-color: var(--ink); }
+.page-nav .theme-toggle { margin: 0; }
+.page-title { margin: 48px 0 8px; }
+
+.blog-group { margin-top: 40px; }
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 20px;
+    align-items: start;
+}
+.blog-item { grid-column: span var(--span, 12); min-width: 0; }
+.blog-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 3px;
+}
+.blog-item figure { margin: 0; }
+.blog-item figcaption {
+    margin-top: 8px;
+    font-family: var(--serif);
+    font-size: 17px;
+    color: var(--ink-2);
+}
+.blog-item h2 {
+    margin-bottom: 16px;
+    font-family: var(--serif);
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: -0.015em;
+}
+.blog-item p, .blog-item li {
+    font-family: var(--serif);
+    font-size: 19.5px;
+    line-height: 1.6;
+    color: var(--ink-2);
+}
+.blog-item p + p, .blog-item p + ul { margin-top: 16px; }
+.blog-item p, .blog-item ul { max-width: 720px; }
+.blog-item ul { padding-left: 1.2em; list-style: disc; }
+.blog-item li + li { margin-top: 10px; }
+.blog-item strong { font-weight: 500; color: var(--ink); }
+
+@media (max-width: 760px) {
+    .page { padding: 0 20px 64px; }
+    .blog-item { grid-column: span 12; }
+    .blog-item:has(> div > img:only-child), .blog-item:has(> figure) { grid-column: span 6; }
+}
+
 /* ---- Small screens ----------------------------------------------------- */
 
 @media (max-width: 560px) {
