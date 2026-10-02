@@ -7,7 +7,7 @@
 
 <div class="identity">
     <div>
-        <p class="eyebrow">{{ profile.eyebrow }}</p>
+        {% if profile.eyebrow %}<p class="eyebrow">{{ profile.eyebrow }}</p>{% endif %}
         <h1 class="name">{{ profile.primary_name }}</h1>
     </div>
     {% if profile.portrait_url %}

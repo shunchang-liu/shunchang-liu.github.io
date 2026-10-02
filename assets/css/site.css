@@ -203,7 +203,7 @@ html:not(.js) .panel-bar { display: none; }
 }
 
 .name {
-    margin: 10px 0 14px;
+    margin: 0 0 14px;
     font-size: 56px;
     line-height: 1.08;
     letter-spacing: -0.025em;

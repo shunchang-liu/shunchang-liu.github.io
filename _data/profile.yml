@@ -1,8 +1,7 @@
 primary_name: "Shunchang Liu"
 secondary_name: ""
 navbar_name: "Shunchang's Homepage"
-# Shown above the name and as the one-line research statement on the homepage
-eyebrow: "AI alignment · EPFL"
+# One-line research statement on the homepage (an optional `eyebrow` line can go above the name)
 headline: >-
   I study why AI models become misaligned, and how to control them from first principles.
 
