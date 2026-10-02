@@ -238,17 +238,19 @@ html:not(.js) .panel-bar { display: none; }
     justify-content: space-between;
     gap: 20px;
     padding-top: 24px;
+    margin-bottom: 14px;
 }
 .portrait {
     flex: none;
     width: 76px;
     height: 76px;
+    margin-right: clamp(0px, 2.8vw, 40px);
     border-radius: 50%;
     object-fit: cover;
 }
 
 .name {
-    margin: 0 0 14px;
+    margin: 0;
     font-size: 56px;
     line-height: 1.08;
     letter-spacing: -0.025em;
