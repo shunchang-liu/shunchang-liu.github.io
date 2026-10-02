@@ -17,10 +17,14 @@
     const views = Array.from(panel.querySelectorAll(".panel-view"));
     const panelLinks = document.querySelectorAll("[data-panel-link]");
     let lastLink = null;
+    // On wide screens the page is an open book: the right page always shows a view.
+    const wide = window.matchMedia("(min-width: 1024px)");
+    let shownView = null;
 
-    function render() {
-        const id = location.hash.slice(1);
-        const view = views.find(v => v.dataset.view === id);
+    function render(fromNavigation) {
+        const hashView = views.find(v => v.dataset.view === location.hash.slice(1));
+        const view = hashView || (wide.matches ? views[0] : null);
+        const id = view ? view.dataset.view : "";
         document.body.classList.toggle("panel-open", Boolean(view));
         views.forEach(v => { v.hidden = v !== view; });
         panelLinks.forEach(link => {
@@ -28,13 +32,16 @@
             else link.removeAttribute("aria-current");
         });
         if (view && view.dataset.view === "cv") loadCv(view.querySelector("[data-cv-src]"));
-        if (view) {
+        if (view && view !== shownView) {
             window.scrollTo(0, 0);
             panel.scrollTop = 0;
-            const heading = view.querySelector(".panel-title");
-            heading.setAttribute("tabindex", "-1");
-            heading.focus({ preventScroll: true });
+            if (fromNavigation) {
+                const heading = view.querySelector(".panel-title");
+                heading.setAttribute("tabindex", "-1");
+                heading.focus({ preventScroll: true });
+            }
         }
+        shownView = view;
     }
 
     // Render the CV PDF as page images so readers can view it without downloading.
@@ -85,17 +92,18 @@
 
     function close() {
         history.pushState(null, "", location.pathname + location.search);
-        render();
+        render(false);
         if (lastLink) lastLink.focus();
     }
 
     panelLinks.forEach(link => link.addEventListener("click", () => { lastLink = link; }));
     panel.querySelectorAll("[data-panel-close]").forEach(b => b.addEventListener("click", close));
     document.addEventListener("keydown", e => {
-        if (e.key === "Escape" && document.body.classList.contains("panel-open")) close();
+        if (e.key === "Escape" && location.hash) close();
     });
-    window.addEventListener("hashchange", render);
-    render();
+    window.addEventListener("hashchange", () => render(true));
+    wide.addEventListener("change", () => render(false));
+    render(false);
 
     // ---- Publication filters ----------------------------------------------
     const items = Array.from(document.querySelectorAll(".pub"));
