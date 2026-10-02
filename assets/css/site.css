@@ -139,6 +139,9 @@ button {
 
 @media (min-width: 1024px) and (max-width: 1279.98px) {
     :root { --profile-width: 440px; }
+    .profile .name { font-size: 48px; }
+    .profile .identity { gap: 16px; }
+    .profile .portrait { width: 64px; height: 64px; }
     .profile { padding-left: 32px; padding-right: 32px; }
     .panel { padding-left: 40px; padding-right: 40px; }
 }
@@ -184,17 +187,24 @@ html:not(.js) .panel-bar { display: none; }
 
 /* ---- Profile column ---------------------------------------------------- */
 
+.identity {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding-top: 24px;
+}
 .portrait {
-    width: 64px;
-    height: 64px;
+    flex: none;
+    width: 76px;
+    height: 76px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 28px;
 }
 
 .name {
     margin: 10px 0 14px;
-    font-size: 60px;
+    font-size: 56px;
     line-height: 1.08;
     letter-spacing: -0.025em;
 }
@@ -598,7 +608,9 @@ html:not(.js) .panel-bar { display: none; }
 /* ---- Small screens ----------------------------------------------------- */
 
 @media (max-width: 560px) {
-    .name { font-size: 46px; }
+    .name { font-size: clamp(36px, 11vw, 42px); }
+    .identity { gap: 14px; }
+    .portrait { width: 60px; height: 60px; }
     .headline { font-size: 22px; margin: 26px 0 30px; }
     .facts { grid-template-columns: 1fr; gap: 22px; }
     .fact + .fact {

@@ -5,11 +5,15 @@
     {%- assign gscholar_url = 'https://scholar.google.com/citations?user=' | append: profile.gscholar -%}
 {%- endif -%}
 
-{% if profile.portrait_url %}
-<img class="portrait" src="{{ profile.portrait_url | relative_url }}" alt="Portrait of {{ profile.primary_name }}" width="64" height="64">
-{% endif %}
-<p class="eyebrow">{{ profile.eyebrow }}</p>
-<h1 class="name">{{ profile.primary_name }}</h1>
+<div class="identity">
+    <div>
+        <p class="eyebrow">{{ profile.eyebrow }}</p>
+        <h1 class="name">{{ profile.primary_name }}</h1>
+    </div>
+    {% if profile.portrait_url %}
+    <img class="portrait" src="{{ profile.portrait_url | relative_url }}" alt="Portrait of {{ profile.primary_name }}" width="76" height="76">
+    {% endif %}
+</div>
 
 <ul class="contact">
     {% if profile.email %}<li><a href="mailto:{{ profile.email }}">{{ profile.email }}</a></li>{% endif %}
