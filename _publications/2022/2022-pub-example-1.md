@@ -10,7 +10,7 @@ pub_date:       "2022"
 cover:          /assets/images/covers/2022-p1.png
 topics:
   - adversarial robustness
-summary:        "Adversarial patches built on model-shared perceptual features transfer across crowd-counting models, and training on them improves robustness."
+summary:        "Designs scale- and position-aware adversarial patches that achieve SOTA attacks on crowd-counting models, improving robustness to complex backgrounds and cross-dataset generalization through adversarial training."
 authors:
   - <strong>Shunchang Liu</strong>*
   - Jiakai Wang*

@@ -8,7 +8,7 @@ pub_date:       "2023"
 cover:          /assets/images/covers/2023-p2.png
 topics:
   - adversarial robustness
-summary:        "A robustness benchmark showing that lower-bit quantized models resist adversarial attacks better but suffer more from natural corruptions and systematic noise."
+summary:        "Evaluates the robustness of quantized models on ImageNet, showing that lower-bit quantization is more resilient to adversarial attacks but more susceptible to natural corruptions and systematic noises."
 authors:
 - Yisong Xiao
 - Tianyuan Zhang

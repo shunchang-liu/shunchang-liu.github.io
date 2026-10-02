@@ -16,7 +16,6 @@
     <details class="pub-details">
         <summary><span class="when-closed">Details &amp; authors</span><span class="when-open">Close details</span></summary>
         <div class="pub-details-body">
-            {% if item.cover %}<img class="pub-cover" src="{{ item.cover | relative_url }}" alt="Figure from {{ item.title | escape }}" loading="lazy">{% endif %}
             <p class="pub-authors">{% include widgets/author_list.html authors=item.authors %}</p>
             {% if item.links %}
             <p class="pub-links">

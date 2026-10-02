@@ -11,7 +11,7 @@ pub_date:       "2025"
 cover:          /assets/images/covers/2025-p1.png
 topics:
   - copyright & IP
-summary:        "Vision-language models debate like a court to judge whether generated images infringe copyright, then revise prompts to avoid infringement."
+summary:        "Builds CopyJudge, a VLM framework that assesses copyright infringement through multi-agent debate and reduces infringement risk in diffusion models through text-prompt and latent-noise optimization."
 authors:
   - <strong>Shunchang Liu</strong>* 
   - Zhuan Shi*

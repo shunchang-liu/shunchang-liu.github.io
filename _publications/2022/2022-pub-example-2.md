@@ -10,7 +10,7 @@ pub_date:       "2022"
 cover:          /assets/images/covers/2022-p2.png
 topics:
   - multimodal models
-summary:        "A closer look at audio-visual scene-aware dialog, where models answer questions about a video over a multi-turn conversation."
+summary:        "Revisits the AVSD task and shows biases in models, datasets, and evaluation metrics, including caption-only baselines that perform competitively without video access."
 authors:
   - Aishan Liu
   - Huiyuan Xie

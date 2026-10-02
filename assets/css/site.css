@@ -486,15 +486,6 @@ html:not(.js) .panel-bar { display: none; }
     padding: 16px 0 4px 18px;
     border-left: 1px solid var(--rule);
 }
-.pub-cover {
-    width: 100%;
-    max-height: 340px;
-    object-fit: contain;
-    object-position: left center;
-    margin-bottom: 16px;
-    border-radius: 2px;
-    background: #fff;
-}
 .pub-authors {
     font-family: var(--serif);
     font-size: 17px;

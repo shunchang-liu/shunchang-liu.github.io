@@ -10,7 +10,7 @@ pub_date:       "2021"
 cover: /assets/images/covers/2021-p1.png
 topics:
   - adversarial robustness
-summary:        "Physical adversarial camouflage that suppresses both model and human attention, so it transfers across models and looks natural."
+summary:        "Proposes the Dual Attention Suppression (DAS) attack, which generates visually-natural physical adversarial camouflages with strong transferability by suppressing both model and human attention."
 authors:
   - Jiakai Wang
   - Aishan Liu

@@ -10,7 +10,7 @@ pub_date:       "2025"
 cover:          /assets/images/covers/2025-p2.png
 topics:
   - LLM evaluation
-summary:        "LLMs tailor diagnostic explanations to patients, but often write overly complex text and show biased empathy across groups."
+summary:        "Evaluates LLMs in medical diagnostic scenarios and finds that they adapt explanations to socio-demographic variables but generate overly complex content and display biased affective empathy."
 authors:
   - Jianzhou Yao*
   - <strong>Shunchang Liu</strong>* 
