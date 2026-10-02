@@ -39,7 +39,7 @@
             <summary>More</summary>
             {% for item in profile.education offset:1 %}
             <div class="more-item">
-                <p class="fact-meta">{{ item.position }}</p>
+                <p class="fact-meta">{{ item.position }}{% if item.tag %} <span class="tag">{{ item.tag }}</span>{% endif %}</p>
                 <p class="fact-small">{{ item.short_name | default: item.name }} · {{ item.date }}</p>
             </div>
             {% endfor %}

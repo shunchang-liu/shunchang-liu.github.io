@@ -312,6 +312,18 @@ html:not(.js) .panel-bar { display: none; }
 .more > summary::after { content: " ⌄"; }
 .more[open] > summary::after { content: " ⌃"; }
 .more-item { margin-top: 14px; }
+.tag {
+    display: inline-block;
+    margin-left: 4px;
+    padding: 0 7px;
+    font-size: 11px;
+    line-height: 1.6;
+    color: var(--accent-2);
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    vertical-align: 0.15em;
+    white-space: nowrap;
+}
 
 .exp-item + .exp-item { margin-top: 14px; }
 .exp-title {

@@ -52,18 +52,16 @@ education:
   advisor: >-
     <a href="https://people.epfl.ch/nicolas.flammarion" target="_blank">Nicolas Flammarion</a> &amp;
     <a href="https://fra31.github.io/" target="_blank">Francesco Croce</a>
-- name: École Polytechnique Fédérale de Lausanne
-  logo: /assets/images/badges/epfl-logo.svg
+- name: École Polytechnique Fédérale de Lausanne & Eidgenössische Technische Hochschule Zürich
+  short_name: EPFL & ETH Zürich
   position: >-
     M.S. in Cybersecurity
+  tag: Joint degree
   date: Sep. 2024 – Aug. 2026
-  short_name: EPFL
-- name: Eidgenössische Technische Hochschule Zürich
-  short_name: ETH Zürich
-  logo: /assets/images/badges/ETH_Zürich_Logo_black.svg.png
+- name: Beihang University
   position: >-
-    M.S. in Cybersecurity
-  date: Sep. 2024 – Aug. 2026
+    B.Eng. in Automation
+  date: Sep. 2017 – Jun. 2021
 
 # experience:
 # - name: Peking University
