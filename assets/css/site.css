@@ -522,35 +522,30 @@ html:not(.js) .panel-bar { display: none; }
     color: var(--muted);
 }
 
-/* ---- Panel: about ------------------------------------------------------ */
+/* ---- Profile: service & collaborators -------------------------------- */
 
-[data-view="about"] .eyebrow { margin-bottom: 10px; }
-[data-view="about"] .panel-title { margin-bottom: 24px; }
-
-.prose {
-    font-family: var(--serif);
-    font-size: 20px;
-    line-height: 1.6;
-    color: var(--ink-2);
-}
-.prose p + p { margin-top: 16px; }
-.prose strong { font-weight: 500; color: var(--ink); }
-
-.about-block {
-    margin-top: 40px;
+.home-block {
+    margin-top: 36px;
     padding-top: 20px;
     border-top: 1px solid var(--rule);
 }
-.about-block .label { margin-bottom: 12px; }
 .entries li {
     display: flex;
-    flex-direction: column;
-    padding: 8px 0;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 6px 0;
     font-family: var(--serif);
-    font-size: 18.5px;
+    font-size: 17.5px;
     line-height: 1.4;
+    color: var(--ink-2);
 }
-.entries .fact-small { font-family: var(--sans); margin-top: 2px; }
+.entries .fact-small {
+    flex: none;
+    max-width: 45%;
+    text-align: right;
+    font-family: var(--sans);
+}
 
 /* ---- Small screens ----------------------------------------------------- */
 
@@ -568,7 +563,6 @@ html:not(.js) .panel-bar { display: none; }
     .panel-title { font-size: 32px; }
     .pub-title { font-size: 24px; }
     .pub-summary { font-size: 17.5px; }
-    .prose { font-size: 18.5px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

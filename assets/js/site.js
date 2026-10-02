@@ -11,7 +11,7 @@
         });
     });
 
-    // ---- Side panel (#publications, #about) -------------------------------
+    // ---- Side panel (#publications) ---------------------------------------
     const panel = document.querySelector(".panel");
     if (!panel) return;
     const views = Array.from(panel.querySelectorAll(".panel-view"));

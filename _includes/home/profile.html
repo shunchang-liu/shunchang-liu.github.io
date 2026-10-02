@@ -67,7 +67,6 @@
 
 <nav class="nav" aria-label="Sections">
     <a href="#publications" data-panel-link="publications">Publications</a>
-    <a href="#about" data-panel-link="about">About</a>
     <a href="{{ '/blog/' | relative_url }}">Blog</a>
     {% if profile.cv_link %}<a href="{{ profile.cv_link | relative_url }}" target="_blank" rel="noopener">CV</a>{% endif %}
     {% include home/theme_toggle.html %}
@@ -88,6 +87,31 @@
     </ol>
 </section>
 {% endif %}
+{% endif %}
+
+{% if site.data.service %}
+<section class="home-block" aria-labelledby="service-title">
+    <h2 id="service-title" class="section-title">Academic Service</h2>
+    <ul class="entries">
+        {% for item in site.data.service.program_committee %}
+        <li><span>{{ item }}</span><span class="fact-small">PC / Reviewer</span></li>
+        {% endfor %}
+        {% for ta in site.data.service.teaching_assistant %}
+        <li><span>{{ ta.course }}, {{ ta.university }}</span><span class="fact-small">TA · {{ ta.term }}</span></li>
+        {% endfor %}
+    </ul>
+</section>
+{% endif %}
+
+{% if site.data.collaborators.collaborators %}
+<section class="home-block" aria-labelledby="collaborators-title">
+    <h2 id="collaborators-title" class="section-title">Collaborators &amp; Friends</h2>
+    <ul class="entries">
+        {% for person in site.data.collaborators.collaborators %}
+        <li><a href="{{ person.url }}" target="_blank" rel="noopener">{{ person.name }}</a><span class="fact-small">{{ person.affiliation }}</span></li>
+        {% endfor %}
+    </ul>
+</section>
 {% endif %}
 
 <section class="visitors" aria-labelledby="visitors-title">
