@@ -6,10 +6,9 @@ date: 2025-07-09 00:01:00 +0800
 
 <h2>Welcome to Shunchang's Blog!</h2>
 <p>
-    I've written a few papers, but honestly they mostly show that I can do basic research and write decent summaries.
+    I've written a few papers, but honestly they mostly show that I can do basic research.
     I haven't yet done work that truly satisfies me.
     What I keep chasing is research that feels <strong>simple and beautiful</strong>, in its ideas, its structure, and the code, writing, and visuals that express it.
-    I trust my sense of aesthetics, and it keeps growing with new experiences and feedback.
     That is what keeps me curious, and it is why I chose to do a PhD. I want to see how far I can go.
 </p>
 <p>
