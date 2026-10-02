@@ -1,33 +1,40 @@
-/* Minimal serif theme for the homepage. Light is the default; [data-theme="dark"] is opt-in. */
+/* Homepage theme: cool paper, navy ink, and one ink-blue accent.
+   Light is the default; [data-theme="dark"] is opt-in. Change --accent to re-theme. */
 
 :root {
-    --bg: #f5f1e8;
-    --surface: #ebe5d8;
-    --ink: #35352f;
-    --ink-2: #57564d;
-    --muted: #6d695e;
-    --rule: rgba(53, 53, 47, 0.14);
-    --rule-strong: rgba(53, 53, 47, 0.4);
-    --map-low: #d9cfbb;
-    --map-high: #35352f;
-    --spine: rgba(53, 53, 47, 0.06);
-    --serif: "EB Garamond", Georgia, "Times New Roman", serif;
-    --sans: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --bg: #f8f8f5;
+    --surface: #eceef2;
+    --ink: #1d2433;
+    --ink-2: #3f4757;
+    --muted: #646b78;
+    --accent: #2a4a9b;
+    --accent-soft: rgba(42, 74, 155, 0.08);
+    --link-rule: rgba(42, 74, 155, 0.35);
+    --rule: rgba(29, 36, 51, 0.12);
+    --rule-strong: rgba(29, 36, 51, 0.38);
+    --map-low: #c9d4ee;
+    --map-high: #2a4a9b;
+    --spine: rgba(42, 74, 155, 0.06);
+    --serif: "Newsreader", Georgia, "Times New Roman", serif;
+    --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
     --profile-width: 560px;
     color-scheme: light;
 }
 
 :root[data-theme="dark"] {
-    --bg: #0f0f0e;
-    --surface: #1d1d1b;
-    --ink: #eceae3;
-    --ink-2: #c8c5ba;
-    --muted: #9b978c;
-    --rule: rgba(236, 234, 227, 0.12);
-    --rule-strong: rgba(236, 234, 227, 0.4);
-    --map-low: #3a3934;
-    --map-high: #eceae3;
-    --spine: rgba(0, 0, 0, 0.45);
+    --bg: #0f1420;
+    --surface: #1a2133;
+    --ink: #e8ebf2;
+    --ink-2: #c3c9d6;
+    --muted: #8f97a8;
+    --accent: #8fb0ff;
+    --accent-soft: rgba(143, 176, 255, 0.12);
+    --link-rule: rgba(143, 176, 255, 0.4);
+    --rule: rgba(232, 235, 242, 0.12);
+    --rule-strong: rgba(232, 235, 242, 0.38);
+    --map-low: #2a3550;
+    --map-high: #8fb0ff;
+    --spine: rgba(0, 0, 0, 0.4);
     color-scheme: dark;
 }
 
@@ -54,14 +61,14 @@ img { max-width: 100%; display: block; }
 a {
     color: inherit;
     text-decoration: underline;
-    text-decoration-color: var(--rule-strong);
+    text-decoration-color: var(--link-rule);
     text-decoration-thickness: 1px;
     text-underline-offset: 3px;
-    transition: text-decoration-color 0.15s;
+    transition: color 0.15s, text-decoration-color 0.15s;
 }
-a:hover { text-decoration-color: currentColor; }
+a:hover { color: var(--accent); text-decoration-color: currentColor; }
 
-:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 2px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
 .panel-title:focus { outline: none; }
 
 button {
@@ -311,7 +318,7 @@ html:not(.js) .panel-bar { display: none; }
     border-bottom: 1px solid transparent;
 }
 .nav a:hover { border-bottom-color: var(--rule-strong); }
-.nav a[aria-current="page"] { border-bottom-color: var(--ink); }
+.nav a[aria-current="page"] { color: var(--accent); border-bottom-color: var(--accent); }
 
 .theme-toggle {
     display: inline-flex;
@@ -388,7 +395,7 @@ html:not(.js) .panel-bar { display: none; }
     color: var(--muted);
 }
 .all-papers[aria-pressed="true"] {
-    color: var(--ink);
+    color: var(--accent);
     text-decoration: underline;
     text-underline-offset: 4px;
 }
@@ -414,9 +421,9 @@ html:not(.js) .panel-bar { display: none; }
 }
 .chip:hover { border-color: var(--rule-strong); }
 .chip[aria-pressed="true"] {
-    color: var(--ink);
-    background: var(--surface);
-    border-color: var(--ink);
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-color: var(--accent);
 }
 
 .search {
@@ -440,7 +447,7 @@ html:not(.js) .panel-bar { display: none; }
     outline: none;
 }
 .search input::placeholder { color: var(--muted); }
-.search:focus-within { border-bottom-color: var(--ink); }
+.search:focus-within { border-bottom-color: var(--accent); }
 
 .pub-status {
     margin-top: 10px;
@@ -453,9 +460,10 @@ html:not(.js) .panel-bar { display: none; }
     border-bottom: 1px solid var(--rule);
 }
 .pub-venue {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--ink-2);
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--accent);
 }
 .pub-venue .badge {
     margin-left: 8px;
@@ -476,12 +484,12 @@ html:not(.js) .panel-bar { display: none; }
     letter-spacing: -0.012em;
 }
 .pub-title a { text-decoration: none; }
-.pub-title a:hover { text-decoration: underline; text-decoration-thickness: 1px; }
+.pub-title a:hover { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; }
 .pub-title .arrow {
     padding-left: 4px;
     font-family: var(--sans);
     font-size: 15px;
-    color: var(--muted);
+    color: var(--accent);
     vertical-align: 0.35em;
 }
 .pub-summary {
@@ -500,6 +508,7 @@ html:not(.js) .panel-bar { display: none; }
 }
 .pub-authors a, .pub-authors span { color: inherit; }
 .pub-authors strong { font-weight: 500; color: var(--ink); }
+.pub-links a { color: var(--accent); }
 .pub-links {
     display: flex;
     flex-wrap: wrap;
@@ -582,7 +591,7 @@ html:not(.js) .panel-bar { display: none; }
 }
 .page-nav a { text-decoration: none; padding-bottom: 4px; border-bottom: 1px solid transparent; }
 .page-nav a:hover { border-bottom-color: var(--rule-strong); }
-.page-nav a[aria-current="page"] { border-bottom-color: var(--ink); }
+.page-nav a[aria-current="page"] { color: var(--accent); border-bottom-color: var(--accent); }
 .page-nav .theme-toggle { margin: 0; }
 .page-title { margin: 48px 0 8px; }
 
@@ -605,6 +614,7 @@ html:not(.js) .panel-bar { display: none; }
 }
 .prose li + li { margin-top: 10px; }
 .prose strong { font-weight: 500; color: var(--ink); }
+.prose a, .news-list a { color: var(--accent); }
 [data-view="about"] .eyebrow { margin-bottom: 10px; }
 [data-view="about"] .panel-title { margin-bottom: 24px; }
 
@@ -623,9 +633,9 @@ html:not(.js) .panel-bar { display: none; }
 /* ---- Small screens ----------------------------------------------------- */
 
 @media (max-width: 560px) {
-    .name { font-size: clamp(36px, 11vw, 42px); }
-    .identity { gap: 14px; }
-    .portrait { width: 60px; height: 60px; }
+    .name { font-size: clamp(30px, 10vw, 42px); }
+    .identity { gap: 12px; }
+    .portrait { width: clamp(48px, 16vw, 60px); height: clamp(48px, 16vw, 60px); }
     .headline { font-size: 22px; margin: 26px 0 30px; }
     .facts { grid-template-columns: 1fr; gap: 22px; }
     .fact + .fact {
