@@ -466,27 +466,8 @@ html:not(.js) .panel-bar { display: none; }
     color: var(--ink-2);
 }
 
-.pub-details { margin-top: 12px; }
-.pub-details > summary {
-    display: inline-block;
-    font-size: 12.5px;
-    color: var(--muted);
-    list-style: none;
-    cursor: pointer;
-}
-.pub-details > summary::-webkit-details-marker { display: none; }
-.pub-details > summary::after { content: "  +"; }
-.pub-details[open] > summary::after { content: "  −"; }
-.pub-details > summary:hover { color: var(--ink); }
-.pub-details .when-open, .pub-details[open] .when-closed { display: none; }
-.pub-details[open] .when-open { display: inline; }
-
-.pub-details-body {
-    margin-top: 14px;
-    padding: 16px 0 4px 18px;
-    border-left: 1px solid var(--rule);
-}
 .pub-authors {
+    margin-bottom: 10px;
     font-family: var(--serif);
     font-size: 17px;
     line-height: 1.5;

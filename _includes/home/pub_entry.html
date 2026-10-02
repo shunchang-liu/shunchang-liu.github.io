@@ -12,23 +12,18 @@
     <h3 class="pub-title">
         {% if primary %}<a href="{{ primary }}" target="_blank" rel="noopener">{{ item.title }}<span class="arrow" aria-hidden="true">&nbsp;↗</span></a>{% else %}{{ item.title }}{% endif %}
     </h3>
+    <p class="pub-authors">{% include widgets/author_list.html authors=item.authors %}</p>
     {% if item.summary %}<p class="pub-summary">{{ item.summary }}</p>{% endif %}
-    <details class="pub-details">
-        <summary><span class="when-closed">Details &amp; authors</span><span class="when-open">Close details</span></summary>
-        <div class="pub-details-body">
-            <p class="pub-authors">{% include widgets/author_list.html authors=item.authors %}</p>
-            {% if item.links %}
-            <p class="pub-links">
-                {%- for link in item.links -%}
-                {%- if link[1].url -%}
-                <a href="{{ link[1].url }}" target="{{ link[1].target | default: '_blank' }}" rel="noopener">{{ link[0] }}</a>
-                {%- else -%}
-                <a href="{{ link[1] }}" target="_blank" rel="noopener">{{ link[0] }}</a>
-                {%- endif -%}
-                {%- endfor -%}
-            </p>
-            {% endif %}
-            {% if item.note %}<p class="pub-note">{{ item.note }}</p>{% endif %}
-        </div>
-    </details>
+    {% if item.links %}
+    <p class="pub-links">
+        {%- for link in item.links -%}
+        {%- if link[1].url -%}
+        <a href="{{ link[1].url }}" target="{{ link[1].target | default: '_blank' }}" rel="noopener">{{ link[0] }}</a>
+        {%- else -%}
+        <a href="{{ link[1] }}" target="_blank" rel="noopener">{{ link[0] }}</a>
+        {%- endif -%}
+        {%- endfor -%}
+    </p>
+    {% endif %}
+    {% if item.note %}<p class="pub-note">{{ item.note }}</p>{% endif %}
 </li>
