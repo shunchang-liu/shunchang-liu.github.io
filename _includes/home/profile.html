@@ -59,11 +59,6 @@
         <div class="exp-item">
             <p class="exp-title">{{ item.name }}</p>
             <p class="fact-small">{% if item.position %}{{ item.position }} · {% endif %}{{ item.date }}</p>
-            {% if item.achievements %}
-            <ul class="fact-links">
-                {% for ach in item.achievements %}<li><a href="{{ ach.link }}" target="_blank" rel="noopener">{{ ach.title }}</a></li>{% endfor %}
-            </ul>
-            {% endif %}
         </div>
         {% endfor %}
     </div>

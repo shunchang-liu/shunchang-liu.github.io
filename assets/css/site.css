@@ -264,13 +264,6 @@ html:not(.js) .panel-bar { display: none; }
 }
 .exp-title a { text-decoration-color: var(--rule); }
 
-.fact-links {
-    margin-top: 8px;
-    font-size: 13px;
-    color: var(--ink-2);
-}
-.fact-links li + li { margin-top: 4px; }
-
 .nav {
     display: flex;
     align-items: center;
