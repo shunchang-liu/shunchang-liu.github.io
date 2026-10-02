@@ -589,49 +589,38 @@ html:not(.js) .panel-bar { display: none; }
 .page-nav .theme-toggle { margin: 0; }
 .page-title { margin: 48px 0 8px; }
 
-.blog-group { margin-top: 40px; }
-.blog-grid {
-    display: grid;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    gap: 20px;
-    align-items: start;
-}
-.blog-item { grid-column: span var(--span, 12); min-width: 0; }
-.blog-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 3px;
-}
-.blog-item figure { margin: 0; }
-.blog-item figcaption {
-    margin-top: 8px;
-    font-family: var(--serif);
-    font-size: 17px;
-    color: var(--ink-2);
-}
-.blog-item h2 {
-    margin-bottom: 16px;
-    font-family: var(--serif);
-    font-size: 30px;
-    font-weight: 400;
-    letter-spacing: -0.015em;
-}
-.blog-item p, .blog-item li {
+.coming-soon { max-width: 640px; }
+.coming-soon .eyebrow { margin-bottom: 20px; }
+
+.prose p {
     font-family: var(--serif);
     font-size: 19.5px;
     line-height: 1.6;
     color: var(--ink-2);
 }
-.blog-item p + p, .blog-item p + ul { margin-top: 16px; }
-.blog-item p, .blog-item ul { max-width: 720px; }
-.blog-item ul { padding-left: 1.2em; list-style: disc; }
-.blog-item li + li { margin-top: 10px; }
-.blog-item strong { font-weight: 500; color: var(--ink); }
+.prose p + p, .prose p + ul { margin-top: 16px; }
+.prose ul { padding-left: 1.2em; list-style: disc; }
+.prose li {
+    font-family: var(--serif);
+    font-size: 19.5px;
+    line-height: 1.6;
+    color: var(--ink-2);
+}
+.prose li + li { margin-top: 10px; }
+.prose strong { font-weight: 500; color: var(--ink); }
+[data-view="about"] .eyebrow { margin-bottom: 10px; }
+[data-view="about"] .panel-title { margin-bottom: 24px; }
 
-@media (max-width: 760px) {
-    .page { padding: 0 20px 64px; }
-    .blog-item { grid-column: span 12; }
-    .blog-item:has(> div > img:only-child), .blog-item:has(> figure) { grid-column: span 6; }
+.cat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+.cat-grid img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 3px;
 }
 
 /* ---- Small screens ----------------------------------------------------- */

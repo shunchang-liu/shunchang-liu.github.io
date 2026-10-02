@@ -4,31 +4,24 @@ title: Blog
 permalink: /blog/
 ---
 {% assign profile = site.data.profile %}
-{% assign groups = site.showcase | sort: "date" | reverse | where: "show", true | group_by_exp: "item", "item.group" %}
 <div class="page">
     <header class="page-bar">
         <a class="page-home" href="{{ '/' | relative_url }}"><span aria-hidden="true">←</span> {{ profile.primary_name }}</a>
         <nav class="page-nav" aria-label="Sections">
             <a href="{{ '/#publications' | relative_url }}">Publications</a>
+            <a href="{{ '/#about' | relative_url }}">About</a>
             <a href="{{ '/blog/' | relative_url }}" aria-current="page">Blog</a>
             {% if profile.cv_link %}<a href="{{ '/#cv' | relative_url }}">CV</a>{% endif %}
             {% include home/theme_toggle.html %}
         </nav>
     </header>
 
-    <main>
+    <main class="coming-soon">
         <h1 class="panel-title page-title">Blog</h1>
-        {% for group in groups %}
-        <section class="blog-group">
-            {% if group.name != "" %}<h2 class="section-title">{{ group.name }}</h2>{% endif %}
-            <div class="blog-grid">
-                {% for item in group.items %}
-                <article class="blog-item" style="--span: {{ item.width | default: 12 | at_most: 12 }}">
-                    {{ item.content }}
-                </article>
-                {% endfor %}
-            </div>
-        </section>
-        {% endfor %}
+        <p class="eyebrow">Coming soon</p>
+        <div class="prose">
+            <p>I'm still aligning my writing habits with my good intentions. So far, the misalignment looks emergent.</p>
+            <p>Posts will appear here once the fine-tuning converges. In the meantime, <a href="{{ '/#about' | relative_url }}">Yuebing</a> is happy to entertain you.</p>
+        </div>
     </main>
 </div>
