@@ -1,36 +1,10 @@
-/* Homepage theme with two color modes: pink (default) and blue ([data-theme="blue"]).
+/* Homepage theme with two color modes: blue (default) and pink ([data-theme="pink"]).
    Hues come from a reference poster (pink #f3d9e1 / rose #e8b0b8, sky #a0d8f8 /
    blue #2878a8); page backgrounds are those hues mixed with 65 to 90% white. Text
    accents are slightly deeper so small text stays readable (>= 4.5:1).
    --swatch is the other mode's color, shown on the toggle. */
 
 :root {
-    --bg: #fbf2f5;
-    --page-left: #fbf2f5;
-    --page-right: #fdf8fa;
-    --desk: linear-gradient(120deg, #f8eaee, #fcf6f8);
-    --surface: #faeef2;
-    --ink: #2b1d2a;
-    --ink-2: #4f3a4b;
-    --muted: #725c6b;
-    --accent: #a8405f;
-    --accent-2: #8f3352;
-    --accent-2-soft: rgba(143, 51, 82, 0.07);
-    --link-rule: rgba(168, 64, 95, 0.35);
-    --rule: rgba(43, 29, 42, 0.11);
-    --rule-strong: rgba(43, 29, 42, 0.36);
-    --map-empty: #f7e6ec;
-    --map-low: #e8b0b8;
-    --map-high: #b03a62;
-    --spine: rgba(43, 29, 42, 0.05);
-    --swatch: #a0d8f8;
-    --serif: "Newsreader", Georgia, "Times New Roman", serif;
-    --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-    --profile-width: 560px;
-    color-scheme: light;
-}
-
-:root[data-theme="blue"] {
     --bg: #eff8fe;
     --page-left: #eff8fe;
     --page-right: #f6fbfe;
@@ -50,6 +24,32 @@
     --map-high: #2878a8;
     --spine: rgba(20, 40, 58, 0.05);
     --swatch: #e8b0b8;
+    --serif: "Newsreader", Georgia, "Times New Roman", serif;
+    --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --profile-width: 560px;
+    color-scheme: light;
+}
+
+:root[data-theme="pink"] {
+    --bg: #fbf2f5;
+    --page-left: #fbf2f5;
+    --page-right: #fdf8fa;
+    --desk: linear-gradient(120deg, #f8eaee, #fcf6f8);
+    --surface: #faeef2;
+    --ink: #2b1d2a;
+    --ink-2: #4f3a4b;
+    --muted: #725c6b;
+    --accent: #a8405f;
+    --accent-2: #8f3352;
+    --accent-2-soft: rgba(143, 51, 82, 0.07);
+    --link-rule: rgba(168, 64, 95, 0.35);
+    --rule: rgba(43, 29, 42, 0.11);
+    --rule-strong: rgba(43, 29, 42, 0.36);
+    --map-empty: #f7e6ec;
+    --map-low: #e8b0b8;
+    --map-high: #b03a62;
+    --spine: rgba(43, 29, 42, 0.05);
+    --swatch: #a0d8f8;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -355,8 +355,8 @@ html:not(.js) .panel-bar { display: none; }
     border-radius: 50%;
     background: var(--swatch);
 }
-.theme-toggle .when-blue, [data-theme="blue"] .theme-toggle .when-pink { display: none; }
-[data-theme="blue"] .theme-toggle .when-blue { display: inline; }
+.theme-toggle .when-pink, [data-theme="pink"] .theme-toggle .when-blue { display: none; }
+[data-theme="pink"] .theme-toggle .when-pink { display: inline; }
 
 .news { margin-top: 28px; }
 .section-title {
