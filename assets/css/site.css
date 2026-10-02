@@ -1,50 +1,50 @@
-/* Homepage theme: blush paper, navy ink, a blue accent (links, navigation) and a
-   pink accent (venues, selections, the spine). Light is the default;
-   [data-theme="dark"] is opt-in. Change --accent / --accent-2 to re-theme. */
+/* Homepage theme with two color modes: sky blue by day (default) and pink by night
+   ([data-theme="pink"]). Each mode tints both pages, its accents, and the map. */
 
 :root {
-    --bg: #e1f1fc;
-    --page-left: #e1f1fc;
-    --page-right: #fcf0f5;
-    --desk: linear-gradient(120deg, #cde7f8, #f7e3ec);
-    --surface: #d3e8f7;
-    --ink: #1d2238;
-    --ink-2: #41465c;
-    --muted: #5f6675;
+    --bg: #eef6fd;
+    --page-left: #eef6fd;
+    --page-right: #f5fafe;
+    --desk: linear-gradient(120deg, #dfeefb, #f1f7fd);
+    --surface: #e1eef9;
+    --ink: #1d2a3a;
+    --ink-2: #3d4b5c;
+    --muted: #5b6878;
     --accent: #1d64a8;
-    --accent-2: #b8336a;
-    --accent-2-soft: rgba(184, 51, 106, 0.07);
+    --accent-2: #0f6e8c;
+    --accent-2-soft: rgba(15, 110, 140, 0.07);
     --link-rule: rgba(29, 100, 168, 0.35);
-    --rule: rgba(29, 34, 56, 0.12);
-    --rule-strong: rgba(29, 34, 56, 0.38);
-    --map-low: #bfe0f6;
-    --map-high: #b8336a;
-    --spine: rgba(29, 34, 56, 0.06);
+    --rule: rgba(29, 42, 58, 0.11);
+    --rule-strong: rgba(29, 42, 58, 0.36);
+    --map-empty: #e3eef8;
+    --map-low: #bcd8ef;
+    --map-high: #1d64a8;
+    --spine: rgba(29, 42, 58, 0.05);
     --serif: "Newsreader", Georgia, "Times New Roman", serif;
     --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
     --profile-width: 560px;
     color-scheme: light;
 }
 
-:root[data-theme="dark"] {
-    --bg: #10202f;
-    --page-left: #10202f;
-    --page-right: #22172a;
-    --desk: linear-gradient(120deg, #0b1825, #1a1020);
-    --surface: #222a40;
-    --ink: #eceaf2;
-    --ink-2: #c7c8d6;
-    --muted: #9396a8;
-    --accent: #8fc4ff;
-    --accent-2: #ff8fc4;
-    --accent-2-soft: rgba(255, 143, 196, 0.12);
-    --link-rule: rgba(143, 196, 255, 0.4);
-    --rule: rgba(236, 234, 242, 0.12);
-    --rule-strong: rgba(236, 234, 242, 0.38);
-    --map-low: #2a3352;
-    --map-high: #ff8fc4;
-    --spine: rgba(0, 0, 0, 0.4);
-    color-scheme: dark;
+:root[data-theme="pink"] {
+    --bg: #fcf1f5;
+    --page-left: #fcf1f5;
+    --page-right: #fef7fa;
+    --desk: linear-gradient(120deg, #f8e4ec, #fdf2f6);
+    --surface: #f8e6ee;
+    --ink: #2b1d2a;
+    --ink-2: #4f3a4b;
+    --muted: #76606f;
+    --accent: #b0336a;
+    --accent-2: #8e3d7f;
+    --accent-2-soft: rgba(142, 61, 127, 0.07);
+    --link-rule: rgba(176, 51, 106, 0.35);
+    --rule: rgba(43, 29, 42, 0.11);
+    --rule-strong: rgba(43, 29, 42, 0.36);
+    --map-empty: #f6e4ec;
+    --map-low: #efc6d8;
+    --map-high: #b0336a;
+    --spine: rgba(43, 29, 42, 0.05);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -345,8 +345,8 @@ html:not(.js) .panel-bar { display: none; }
 .theme-toggle:hover { color: var(--ink); background: var(--surface); }
 .nav .theme-toggle { margin-bottom: 0; }
 .icon-sun { display: none; }
-[data-theme="dark"] .icon-sun { display: block; }
-[data-theme="dark"] .icon-moon { display: none; }
+[data-theme="pink"] .icon-sun { display: block; }
+[data-theme="pink"] .icon-moon { display: none; }
 
 .news { margin-top: 28px; }
 .section-title {

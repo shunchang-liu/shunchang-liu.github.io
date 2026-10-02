@@ -18,7 +18,7 @@
         const data = google.visualization.arrayToDataTable([["Country", "Visits"]].concat(Object.entries(counts)));
         new google.visualization.GeoChart(document.getElementById("geo_chart")).draw(data, {
             backgroundColor: "transparent",
-            datalessRegionColor: cssVar("--surface"),
+            datalessRegionColor: cssVar("--map-empty"),
             colorAxis: { colors: [cssVar("--map-low"), cssVar("--map-high")] },
             legend: "none",
         });
