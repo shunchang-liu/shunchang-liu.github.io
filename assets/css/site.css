@@ -1,27 +1,29 @@
-/* Homepage theme with two color modes: pink (default) and vivid blue
-   ([data-theme="blue"]). Each mode tints both pages, its accents, and the map.
+/* Homepage theme with two color modes: pink (default) and blue ([data-theme="blue"]).
+   Hues come from a reference poster (pink #f3d9e1 / rose #e8b0b8, sky #a0d8f8 /
+   blue #2878a8); page backgrounds are those hues mixed mostly with white. Text
+   accents are slightly deeper so small text stays readable (>= 4.5:1).
    --swatch is the other mode's color, shown on the toggle. */
 
 :root {
-    --bg: #fcf1f5;
-    --page-left: #fcf1f5;
-    --page-right: #fef7fa;
-    --desk: linear-gradient(120deg, #f8e4ec, #fdf2f6);
-    --surface: #f8e6ee;
+    --bg: #f8eaee;
+    --page-left: #f8eaee;
+    --page-right: #fbf4f6;
+    --desk: linear-gradient(120deg, #f5e1e7, #faf0f3);
+    --surface: #f3e0e6;
     --ink: #2b1d2a;
     --ink-2: #4f3a4b;
-    --muted: #76606f;
-    --accent: #b0336a;
-    --accent-2: #8e3d7f;
-    --accent-2-soft: rgba(142, 61, 127, 0.07);
-    --link-rule: rgba(176, 51, 106, 0.35);
+    --muted: #725c6b;
+    --accent: #a8405f;
+    --accent-2: #8f3352;
+    --accent-2-soft: rgba(143, 51, 82, 0.07);
+    --link-rule: rgba(168, 64, 95, 0.35);
     --rule: rgba(43, 29, 42, 0.11);
     --rule-strong: rgba(43, 29, 42, 0.36);
-    --map-empty: #f6e4ec;
-    --map-low: #efc6d8;
-    --map-high: #b0336a;
+    --map-empty: #f1d7df;
+    --map-low: #e8b0b8;
+    --map-high: #b03a62;
     --spine: rgba(43, 29, 42, 0.05);
-    --swatch: #2f7ff0;
+    --swatch: #a0d8f8;
     --serif: "Newsreader", Georgia, "Times New Roman", serif;
     --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
     --profile-width: 560px;
@@ -29,25 +31,25 @@
 }
 
 :root[data-theme="blue"] {
-    --bg: #e2f0ff;
-    --page-left: #e2f0ff;
-    --page-right: #eef6ff;
-    --desk: linear-gradient(120deg, #cfe5ff, #eaf4ff);
-    --surface: #d7e9fd;
-    --ink: #12243d;
-    --ink-2: #33465f;
-    --muted: #52637a;
-    --accent: #0b5cc9;
-    --accent-2: #00629e;
-    --accent-2-soft: rgba(0, 98, 158, 0.08);
-    --link-rule: rgba(11, 92, 201, 0.35);
-    --rule: rgba(18, 36, 61, 0.11);
-    --rule-strong: rgba(18, 36, 61, 0.36);
-    --map-empty: #d9eafc;
-    --map-low: #a9d0fa;
-    --map-high: #0b5cc9;
-    --spine: rgba(18, 36, 61, 0.05);
-    --swatch: #e0679b;
+    --bg: #e4f4fd;
+    --page-left: #e4f4fd;
+    --page-right: #f0f9fe;
+    --desk: linear-gradient(120deg, #d4edfc, #ecf7fe);
+    --surface: #dcf0fc;
+    --ink: #14283a;
+    --ink-2: #33495c;
+    --muted: #4f6475;
+    --accent: #1f6797;
+    --accent-2: #1d6a8c;
+    --accent-2-soft: rgba(40, 120, 168, 0.08);
+    --link-rule: rgba(31, 103, 151, 0.35);
+    --rule: rgba(20, 40, 58, 0.11);
+    --rule-strong: rgba(20, 40, 58, 0.36);
+    --map-empty: #d4edfc;
+    --map-low: #a0d8f8;
+    --map-high: #2878a8;
+    --spine: rgba(20, 40, 58, 0.05);
+    --swatch: #e8b0b8;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
