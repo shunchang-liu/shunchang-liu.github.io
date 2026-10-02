@@ -1,32 +1,8 @@
-/* Homepage theme with two color modes: sky blue by day (default) and pink by night
-   ([data-theme="pink"]). Each mode tints both pages, its accents, and the map. */
+/* Homepage theme with two color modes: pink (default) and vivid blue
+   ([data-theme="blue"]). Each mode tints both pages, its accents, and the map.
+   --swatch is the other mode's color, shown on the toggle. */
 
 :root {
-    --bg: #eef6fd;
-    --page-left: #eef6fd;
-    --page-right: #f5fafe;
-    --desk: linear-gradient(120deg, #dfeefb, #f1f7fd);
-    --surface: #e1eef9;
-    --ink: #1d2a3a;
-    --ink-2: #3d4b5c;
-    --muted: #5b6878;
-    --accent: #1d64a8;
-    --accent-2: #0f6e8c;
-    --accent-2-soft: rgba(15, 110, 140, 0.07);
-    --link-rule: rgba(29, 100, 168, 0.35);
-    --rule: rgba(29, 42, 58, 0.11);
-    --rule-strong: rgba(29, 42, 58, 0.36);
-    --map-empty: #e3eef8;
-    --map-low: #bcd8ef;
-    --map-high: #1d64a8;
-    --spine: rgba(29, 42, 58, 0.05);
-    --serif: "Newsreader", Georgia, "Times New Roman", serif;
-    --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-    --profile-width: 560px;
-    color-scheme: light;
-}
-
-:root[data-theme="pink"] {
     --bg: #fcf1f5;
     --page-left: #fcf1f5;
     --page-right: #fef7fa;
@@ -45,6 +21,33 @@
     --map-low: #efc6d8;
     --map-high: #b0336a;
     --spine: rgba(43, 29, 42, 0.05);
+    --swatch: #2f7ff0;
+    --serif: "Newsreader", Georgia, "Times New Roman", serif;
+    --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --profile-width: 560px;
+    color-scheme: light;
+}
+
+:root[data-theme="blue"] {
+    --bg: #e2f0ff;
+    --page-left: #e2f0ff;
+    --page-right: #eef6ff;
+    --desk: linear-gradient(120deg, #cfe5ff, #eaf4ff);
+    --surface: #d7e9fd;
+    --ink: #12243d;
+    --ink-2: #33465f;
+    --muted: #52637a;
+    --accent: #0b5cc9;
+    --accent-2: #00629e;
+    --accent-2-soft: rgba(0, 98, 158, 0.08);
+    --link-rule: rgba(11, 92, 201, 0.35);
+    --rule: rgba(18, 36, 61, 0.11);
+    --rule-strong: rgba(18, 36, 61, 0.36);
+    --map-empty: #d9eafc;
+    --map-low: #a9d0fa;
+    --map-high: #0b5cc9;
+    --spine: rgba(18, 36, 61, 0.05);
+    --swatch: #e0679b;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -335,18 +338,23 @@ html:not(.js) .panel-bar { display: none; }
 .theme-toggle {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    margin: -6px 0;
+    gap: 7px;
+    padding: 4px 11px;
+    font-size: 13px;
     color: var(--muted);
-    border-radius: 50%;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    transition: color 0.15s, border-color 0.15s;
 }
-.theme-toggle:hover { color: var(--ink); background: var(--surface); }
-.nav .theme-toggle { margin-bottom: 0; }
-.icon-sun { display: none; }
-[data-theme="pink"] .icon-sun { display: block; }
-[data-theme="pink"] .icon-moon { display: none; }
+.theme-toggle:hover { color: var(--ink); border-color: var(--rule-strong); }
+.theme-swatch {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--swatch);
+}
+.theme-toggle .when-blue, [data-theme="blue"] .theme-toggle .when-pink { display: none; }
+[data-theme="blue"] .theme-toggle .when-blue { display: inline; }
 
 .news { margin-top: 28px; }
 .section-title {
@@ -600,8 +608,9 @@ html:not(.js) .panel-bar { display: none; }
 }
 .page-nav {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 24px;
+    gap: 10px 24px;
     font-size: 14.5px;
 }
 .page-nav a { text-decoration: none; padding-bottom: 4px; border-bottom: 1px solid transparent; }

@@ -6,10 +6,10 @@
     <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.data.profile.primary_name }}</title>
     <meta name="description" content="{{ site.data.profile.headline | strip_html | strip }}">
     <script>
-    // Apply the saved color mode before first paint; blue (day) is the default.
+    // Apply the saved color mode before first paint; pink is the default.
     document.documentElement.classList.add("js");
     try {
-        if (localStorage.getItem("theme") === "pink") document.documentElement.setAttribute("data-theme", "pink");
+        if (localStorage.getItem("theme") === "blue") document.documentElement.setAttribute("data-theme", "blue");
     } catch (e) {}
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">

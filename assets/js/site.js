@@ -4,8 +4,8 @@
     // ---- Theme ------------------------------------------------------------
     document.querySelectorAll("[data-theme-toggle]").forEach(button => {
         button.addEventListener("click", () => {
-            const next = root.getAttribute("data-theme") === "pink" ? "blue" : "pink";
-            if (next === "pink") root.setAttribute("data-theme", "pink");
+            const next = root.getAttribute("data-theme") === "blue" ? "pink" : "blue";
+            if (next === "blue") root.setAttribute("data-theme", "blue");
             else root.removeAttribute("data-theme");
             try { localStorage.setItem("theme", next); } catch (e) {}
             document.dispatchEvent(new Event("themechange"));
