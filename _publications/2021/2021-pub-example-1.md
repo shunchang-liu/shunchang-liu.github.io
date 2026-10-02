@@ -8,6 +8,9 @@ pub_post:       ","
 pub_last:       ' <span class="badge badge-pill badge-publication badge-success">Oral</span>'
 pub_date:       "2021"
 cover: /assets/images/covers/2021-p1.png
+topics:
+  - adversarial robustness
+summary:        "Physical adversarial camouflage that suppresses both model and human attention, so it transfers across models and looks natural."
 authors:
   - Jiakai Wang
   - Aishan Liu

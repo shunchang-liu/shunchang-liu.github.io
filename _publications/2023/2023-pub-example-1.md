@@ -6,6 +6,9 @@ pub:            "CVPR @AdvCV Workshop"
 pub_post:       ","
 pub_date:       "2023"
 cover:          /assets/images/covers/2023-p1.png
+topics:
+  - adversarial robustness
+summary:        "Adversarial patches that use scene graphs to disrupt visual reasoning, transferring across tasks such as VQA and image captioning."
 authors:
 - Tony Ma
 - Songze Li

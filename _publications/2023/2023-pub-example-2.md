@@ -6,6 +6,9 @@ pub:            "CVPR @AdvCV Workshop"
 pub_post:       ","
 pub_date:       "2023"
 cover:          /assets/images/covers/2023-p2.png
+topics:
+  - adversarial robustness
+summary:        "A robustness benchmark showing that lower-bit quantized models resist adversarial attacks better but suffer more from natural corruptions and systematic noise."
 authors:
 - Yisong Xiao
 - Tianyuan Zhang

@@ -1,0 +1,46 @@
+{%- assign profile = site.data.profile -%}
+<p class="eyebrow">About</p>
+<h2 id="about-title" class="panel-title">A little about me.</h2>
+<div class="prose">{{ profile.short_bio }}</div>
+
+{% if site.data.collaborators.labs %}
+<section class="about-block">
+    <h3 class="label">Research experience</h3>
+    <ul class="entries">
+        {% for lab in site.data.collaborators.labs %}
+        <li>
+            <a href="{{ lab.url }}" target="_blank" rel="noopener">{{ lab.name }}</a>
+            <span class="fact-small">{{ lab.position }} · {{ lab.duration }} · Supervisor: {{ lab.supervisor }}</span>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+{% endif %}
+
+{% if site.data.collaborators.collaborators %}
+<section class="about-block">
+    <h3 class="label">Collaborators &amp; friends</h3>
+    <ul class="entries">
+        {% for person in site.data.collaborators.collaborators %}
+        <li>
+            <a href="{{ person.url }}" target="_blank" rel="noopener">{{ person.name }}</a>
+            <span class="fact-small">{{ person.affiliation }}</span>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+{% endif %}
+
+{% if site.data.service %}
+<section class="about-block">
+    <h3 class="label">Academic service</h3>
+    <ul class="entries">
+        {% for item in site.data.service.program_committee %}
+        <li>{{ item }}<span class="fact-small">Program committee / reviewer</span></li>
+        {% endfor %}
+        {% for ta in site.data.service.teaching_assistant %}
+        <li>{{ ta.course }}<span class="fact-small">Teaching assistant · {{ ta.university }} · {{ ta.term }}</span></li>
+        {% endfor %}
+    </ul>
+</section>
+{% endif %}

@@ -1,6 +1,10 @@
 primary_name: "Shunchang Liu"
 secondary_name: ""
 navbar_name: "Shunchang's Homepage"
+# Shown above the name and as the one-line research statement on the homepage
+eyebrow: "AI alignment · EPFL"
+headline: >-
+  I study why AI models become misaligned, and how to control them from first principles.
 
 positions:
 #- logo: /assets/images/badges/epfl-logo.svg  # Logo is optional
@@ -55,16 +59,22 @@ portrait_url: /assets/images/photos/portrait2.jpg
 
 education:
 - name: École Polytechnique Fédérale de Lausanne
+  short_name: EPFL
   logo: /assets/images/badges/epfl-logo.svg
   position: >-
     Ph.D. in Computer Science
   date: Sep. 2026 – present
+  advisor: >-
+    <a href="https://people.epfl.ch/nicolas.flammarion" target="_blank">Nicolas Flammarion</a> &amp;
+    <a href="https://fra31.github.io/" target="_blank">Francesco Croce</a>
 - name: École Polytechnique Fédérale de Lausanne
   logo: /assets/images/badges/epfl-logo.svg
   position: >-
     M.S. in Cybersecurity
   date: Sep. 2024 – Aug. 2026
+  short_name: EPFL
 - name: Eidgenössische Technische Hochschule Zürich
+  short_name: ETH Zürich
   logo: /assets/images/badges/ETH_Zürich_Logo_black.svg.png
   position: >-
     M.S. in Cybersecurity

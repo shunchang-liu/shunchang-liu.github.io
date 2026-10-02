@@ -8,6 +8,9 @@ pub_post:       ","
 # pub_last:       ' <span class="badge badge-pill badge-publication badge-success">Spotlight</span>'
 pub_date:       "2022"
 cover:          /assets/images/covers/2022-p1.png
+topics:
+  - adversarial robustness
+summary:        "Adversarial patches built on model-shared perceptual features transfer across crowd-counting models, and training on them improves robustness."
 authors:
   - <strong>Shunchang Liu</strong>*
   - Jiakai Wang*

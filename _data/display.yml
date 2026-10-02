@@ -4,6 +4,17 @@ homepage:
   show_selected_publications: true
   num_news: 10
 
+# Topic filters on the publications panel, in display order.
+# Each publication lists its own topics in its front matter.
+publication_topics:
+  - alignment
+  - interpretability
+  - multimodal models
+  - adversarial robustness
+  - copyright & IP
+  - LLM evaluation
+  - applied ML
+
 # Feel free to replace the footer text if you would like to, but I will greatly appreciate it 
 # if you keep the link to the template so that more people can benefit from it. Thanks!
 footer_text: >-

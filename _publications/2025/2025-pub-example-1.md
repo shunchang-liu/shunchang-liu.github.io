@@ -9,6 +9,9 @@ pub_post:       ","
 # pub_last:       ' <span class="badge badge-pill badge-publication badge-success">Spotlight</span>'
 pub_date:       "2025"
 cover:          /assets/images/covers/2025-p1.png
+topics:
+  - copyright & IP
+summary:        "Vision-language models debate like a court to judge whether generated images infringe copyright, then revise prompts to avoid infringement."
 authors:
   - <strong>Shunchang Liu</strong>* 
   - Zhuan Shi*

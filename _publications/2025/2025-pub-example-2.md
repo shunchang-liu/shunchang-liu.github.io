@@ -8,6 +8,9 @@ pub_post:       ","
 # pub_last:       ' <span class="badge badge-pill badge-publication badge-success">Spotlight</span>'
 pub_date:       "2025"
 cover:          /assets/images/covers/2025-p2.png
+topics:
+  - LLM evaluation
+summary:        "LLMs tailor diagnostic explanations to patients, but often write overly complex text and show biased empathy across groups."
 authors:
   - Jianzhou Yao*
   - <strong>Shunchang Liu</strong>* 

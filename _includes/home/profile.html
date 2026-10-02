@@ -1,0 +1,93 @@
+{%- assign profile = site.data.profile -%}
+{%- if profile.gscholar contains 'scholar.google' -%}
+    {%- assign gscholar_url = profile.gscholar -%}
+{%- else -%}
+    {%- assign gscholar_url = 'https://scholar.google.com/citations?user=' | append: profile.gscholar -%}
+{%- endif -%}
+
+{% if profile.portrait_url %}
+<img class="portrait" src="{{ profile.portrait_url | relative_url }}" alt="Portrait of {{ profile.primary_name }}" width="64" height="64">
+{% endif %}
+<p class="eyebrow">{{ profile.eyebrow }}</p>
+<h1 class="name">{{ profile.primary_name }}</h1>
+
+<ul class="contact">
+    {% if profile.email %}<li><a href="mailto:{{ profile.email }}">{{ profile.email }}</a></li>{% endif %}
+    {% if profile.gscholar %}<li><a href="{{ gscholar_url }}" target="_blank" rel="noopener">Scholar</a></li>{% endif %}
+    {% if profile.linkedin %}<li><a href="https://www.linkedin.com/in/{{ profile.linkedin }}" target="_blank" rel="noopener">LinkedIn</a></li>{% endif %}
+    {% if profile.github %}<li><a href="https://github.com/{{ profile.github }}" target="_blank" rel="noopener">GitHub</a></li>{% endif %}
+    {% if profile.twitter %}<li><a href="https://twitter.com/{{ profile.twitter }}" target="_blank" rel="noopener">Twitter</a></li>{% endif %}
+</ul>
+
+<p class="headline">{{ profile.headline }}</p>
+
+<div class="facts">
+    {% if profile.education %}
+    {% assign current = profile.education | first %}
+    <div class="fact">
+        <p class="label">Education</p>
+        <p class="fact-title">{{ current.position }}</p>
+        <p class="fact-meta">{{ current.short_name | default: current.name }}</p>
+        <p class="fact-small">{{ current.date }}</p>
+        {% if current.advisor %}<p class="fact-small">Advisors: {{ current.advisor }}</p>{% endif %}
+        {% if profile.education.size > 1 %}
+        <details class="more">
+            <summary>More</summary>
+            {% for item in profile.education offset:1 %}
+            <div class="more-item">
+                <p class="fact-meta">{{ item.position }}</p>
+                <p class="fact-small">{{ item.short_name | default: item.name }} · {{ item.date }}</p>
+            </div>
+            {% endfor %}
+        </details>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    {% if profile.intern %}
+    <div class="fact">
+        <p class="label">Experience</p>
+        {% for item in profile.intern %}
+        <p class="fact-title">{{ item.name }}</p>
+        {% if item.position %}<p class="fact-meta">{{ item.position }}</p>{% endif %}
+        <p class="fact-small">{{ item.date }}</p>
+        {% if item.achievements %}
+        <ul class="fact-links">
+            {% for ach in item.achievements %}<li><a href="{{ ach.link }}" target="_blank" rel="noopener">{{ ach.title }}</a></li>{% endfor %}
+        </ul>
+        {% endif %}
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+<nav class="nav" aria-label="Sections">
+    <a href="#publications" data-panel-link="publications">Publications</a>
+    <a href="#about" data-panel-link="about">About</a>
+    <a href="{{ '/blog/' | relative_url }}">Blog</a>
+    {% if profile.cv_link %}<a href="{{ profile.cv_link | relative_url }}" target="_blank" rel="noopener">CV</a>{% endif %}
+    {% include home/theme_toggle.html %}
+</nav>
+
+{% if site.data.display.homepage.show_news %}
+{% assign news = site.news | sort: "date" | reverse %}
+{% if news.size > 0 %}
+<section class="news" aria-labelledby="news-title">
+    <h2 id="news-title" class="section-title">News</h2>
+    <ol class="news-list">
+        {% for item in news limit: site.data.display.homepage.num_news %}
+        <li>
+            <time datetime="{{ item.date | date: '%Y-%m-%d' }}">{{ item.date | date: "%b %Y" }}</time>
+            <div>{{ item.title }}</div>
+        </li>
+        {% endfor %}
+    </ol>
+</section>
+{% endif %}
+{% endif %}
+
+<section class="visitors" aria-labelledby="visitors-title">
+    <h2 id="visitors-title" class="label">Visitors</h2>
+    <div id="geo_chart" class="visitors-map"></div>
+    <p id="total-visitors" class="fact-small"></p>
+</section>

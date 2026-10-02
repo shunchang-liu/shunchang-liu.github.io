@@ -1,0 +1,77 @@
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<script>
+(function () {
+    const sheetUrl = "https://docs.google.com/spreadsheets/d/1oTlm2YsOU71ycHamBBSyrdOWv_JHK81YUhJZcTz4plw/gviz/tq?sheet=Sheet1";
+    let rows = null;
+
+    function cssVar(name) {
+        return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    }
+
+    function drawChart() {
+        if (!rows || !window.google || !google.visualization) return;
+        const counts = {};
+        for (const row of rows) {
+            const country = row.c[2] && row.c[2].v;
+            if (country) counts[country] = (counts[country] || 0) + 1;
+        }
+        const data = google.visualization.arrayToDataTable([["Country", "Visits"]].concat(Object.entries(counts)));
+        new google.visualization.GeoChart(document.getElementById("geo_chart")).draw(data, {
+            backgroundColor: "transparent",
+            datalessRegionColor: cssVar("--surface"),
+            colorAxis: { colors: [cssVar("--map-low"), cssVar("--map-high")] },
+            legend: "none",
+        });
+    }
+
+    google.charts.load("current", {
+        packages: ["geochart"],
+        mapsApiKey: "AIzaSyDkgQLLzKQYi4JYvogjT2V0n50TAvoitDg",
+    });
+
+    fetch(sheetUrl)
+        .then(res => res.text())
+        .then(rep => {
+            rows = JSON.parse(rep.match(/(?<=\().*(?=\);)/s)[0]).table.rows;
+            document.getElementById("total-visitors").textContent = "Total visitors: " + rows.length;
+            google.charts.setOnLoadCallback(drawChart);
+        });
+
+    document.addEventListener("themechange", drawChart);
+    let resizeTimer;
+    window.addEventListener("resize", () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(drawChart, 200); });
+})();
+</script>
+
+<script>
+function visitorLogged(resp) {
+console.log("visitorLogged() callback received:", resp);
+}
+;(function() {
+// Do not log local previews (jekyll serve) as visits.
+if (['localhost', '127.0.0.1', '[::1]'].includes(location.hostname)) return;
+fetch('https://ipapi.co/json/')
+    .then(r => r.json())
+    .then(data => {
+    console.log("ipapi.co returned:", data);
+
+    const params = new URLSearchParams({
+        ip:       data.ip || '',
+        country:  data.country_name || '',
+        city:     data.city || '',
+        region:   data.region || '',
+        ua:       navigator.userAgent,
+        callback: 'visitorLogged'
+    });
+
+    const url = 'https://script.google.com/macros/s/AKfycbxfQ74ZtXNFoHQJkjLWACV_41NhztAl9uzBSYCtZw0eGnu5OdiTfGrczr3CPi_ad-h7/exec?' + params;
+    console.log("JSONP request to:", url);
+
+    const s = document.createElement('script');
+    s.src = url;
+    s.onerror = () => console.error("JSONP script load error");
+    document.body.appendChild(s);
+    })
+    .catch(err => console.error("ipapi.co fetch error:", err));
+})();
+</script>

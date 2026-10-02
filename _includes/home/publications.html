@@ -1,0 +1,38 @@
+{%- assign pubs = site.publications | sort: "date" | reverse -%}
+{%- assign selected = pubs | where: "selected", true -%}
+{%- assign newest = pubs | first -%}
+{%- assign oldest = pubs | last -%}
+
+<div class="panel-head">
+    <h2 id="publications-title" class="panel-title">Publications</h2>
+    <span class="fact-small">{{ oldest.date | date: "%Y" }}–{{ newest.date | date: "%Y" }}</span>
+</div>
+
+<div class="filter-head">
+    <p class="label">Research topics</p>
+    <button type="button" class="all-papers" data-topic="all" aria-pressed="false">All papers <span class="count">{{ pubs.size }}</span></button>
+</div>
+<div class="chips" role="group" aria-label="Filter by topic">
+    <button type="button" class="chip" data-topic="selected" aria-pressed="true">selected <span class="count">{{ selected.size }}</span></button>
+    {%- for topic in site.data.display.publication_topics -%}
+    {%- assign n = 0 -%}
+    {%- for item in pubs -%}{%- if item.topics contains topic -%}{%- assign n = n | plus: 1 -%}{%- endif -%}{%- endfor -%}
+    {%- if n > 0 %}
+    <button type="button" class="chip" data-topic="{{ topic | escape }}" aria-pressed="false">{{ topic }} <span class="count">{{ n }}</span></button>
+    {%- endif -%}
+    {%- endfor %}
+</div>
+
+<label class="label" for="pub-search">Search publications</label>
+<div class="search">
+    <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    <input id="pub-search" type="search" placeholder="Search papers…" autocomplete="off">
+</div>
+<p class="fact-small pub-status" aria-live="polite">{{ selected.size }} papers · newest first</p>
+
+<ol class="pub-list">
+    {% for item in pubs %}
+    {% include home/pub_entry.html item=item %}
+    {% endfor %}
+</ol>
+<p class="pub-empty" hidden>No papers match this filter.</p>
