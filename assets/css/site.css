@@ -3,11 +3,14 @@
    [data-theme="dark"] is opt-in. Change --accent / --accent-2 to re-theme. */
 
 :root {
-    --bg: #faf8fb;
-    --surface: #f0ecf3;
+    --bg: #eef4fc;
+    --page-left: #eef4fc;
+    --page-right: #fcf0f5;
+    --desk: linear-gradient(120deg, #dfe9f8, #f7e3ec);
+    --surface: #e4e9f3;
     --ink: #1d2238;
     --ink-2: #41465c;
-    --muted: #646b78;
+    --muted: #5f6675;
     --accent: #2f4fb3;
     --accent-2: #b8336a;
     --accent-2-soft: rgba(184, 51, 106, 0.07);
@@ -16,7 +19,7 @@
     --rule-strong: rgba(29, 34, 56, 0.38);
     --map-low: #cdd7f3;
     --map-high: #b8336a;
-    --spine: rgba(184, 51, 106, 0.06);
+    --spine: rgba(29, 34, 56, 0.06);
     --serif: "Newsreader", Georgia, "Times New Roman", serif;
     --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
     --profile-width: 560px;
@@ -24,8 +27,11 @@
 }
 
 :root[data-theme="dark"] {
-    --bg: #121522;
-    --surface: #1c2033;
+    --bg: #141b2e;
+    --page-left: #141b2e;
+    --page-right: #22172a;
+    --desk: linear-gradient(120deg, #0d1222, #1a1020);
+    --surface: #222a40;
     --ink: #eceaf2;
     --ink-2: #c7c8d6;
     --muted: #9396a8;
@@ -47,6 +53,7 @@ html { background: var(--bg); }
 
 body {
     margin: 0;
+    min-height: 100vh;
     background: var(--bg);
     color: var(--ink);
     font-family: var(--sans);
@@ -129,7 +136,8 @@ button {
 /* Desktop: a book. Closed, the profile is a single centered page; opening a
    view adds an equal right page, and each page scrolls independently. */
 @media (min-width: 1024px) {
-    body { overflow: hidden; }
+    body { background: var(--desk); background-attachment: fixed; }
+    .book { overflow: hidden; }
     /* Grid areas (not flex) so the percentage padding below resolves against
        the page width, which keeps the text block centered on each page. */
     .shell {
@@ -149,13 +157,14 @@ button {
         scrollbar-width: thin;
         padding: 72px max(48px, calc((100% - 600px) / 2)) 88px;
     }
-    .profile { scrollbar-width: none; }
+    .profile { scrollbar-width: none; background: var(--page-left); box-shadow: 0 0 48px rgba(29, 34, 56, 0.08); }
     .profile::-webkit-scrollbar { display: none; }
-    .panel-open .profile { background: linear-gradient(to left, var(--spine), transparent 56px); }
+    .panel-open .profile { background: linear-gradient(to left, var(--spine), transparent 56px), var(--page-left); }
     .js .panel-open .panel {
         padding-top: 28px;
-        background: linear-gradient(to right, var(--spine), transparent 56px);
+        background: linear-gradient(to right, var(--spine), transparent 56px), var(--page-right);
         border-left: 1px solid var(--rule);
+        box-shadow: 0 0 48px rgba(29, 34, 56, 0.08);
         animation: page-open 0.35s ease-out;
     }
     .panel-view { max-width: none; }
@@ -187,7 +196,7 @@ button {
         inset: 0;
         z-index: 10;
         overflow-y: auto;
-        background: var(--bg);
+        background: var(--page-right);
     }
     .panel-bar {
         position: sticky;
@@ -198,7 +207,7 @@ button {
         justify-content: space-between;
         margin: 0 -20px 24px;
         padding: 14px 20px;
-        background: var(--bg);
+        background: var(--page-right);
         border-bottom: 1px solid var(--rule);
     }
     .panel-close .when-narrow {
