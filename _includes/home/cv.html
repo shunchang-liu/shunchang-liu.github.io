@@ -1,0 +1,9 @@
+{%- assign cv_url = site.data.profile.cv_link | relative_url -%}
+<div class="panel-head">
+    <h2 id="cv-title" class="panel-title">CV</h2>
+    <a class="fact-small" href="{{ cv_url }}" download>Download PDF</a>
+</div>
+<div class="cv-pages" data-cv-src="{{ cv_url }}">
+    <p class="fact-small cv-status">Loading CV…</p>
+</div>
+<noscript><p><a href="{{ cv_url }}">Open the CV (PDF)</a></p></noscript>

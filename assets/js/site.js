@@ -11,7 +11,7 @@
         });
     });
 
-    // ---- Side panel (#publications) ---------------------------------------
+    // ---- Side panel (#publications, #cv) ----------------------------------
     const panel = document.querySelector(".panel");
     if (!panel) return;
     const views = Array.from(panel.querySelectorAll(".panel-view"));
@@ -27,6 +27,7 @@
             if (link.dataset.panelLink === id) link.setAttribute("aria-current", "page");
             else link.removeAttribute("aria-current");
         });
+        if (view && view.dataset.view === "cv") loadCv(view.querySelector("[data-cv-src]"));
         if (view) {
             window.scrollTo(0, 0);
             panel.scrollTop = 0;
@@ -34,6 +35,52 @@
             heading.setAttribute("tabindex", "-1");
             heading.focus({ preventScroll: true });
         }
+    }
+
+    // Render the CV PDF as page images so readers can view it without downloading.
+    const PDFJS = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/";
+    let cvLoading = null;
+
+    function loadScript(src) {
+        return new Promise((resolve, reject) => {
+            const s = document.createElement("script");
+            s.src = src;
+            s.onload = resolve;
+            s.onerror = () => reject(new Error("Failed to load " + src));
+            document.head.appendChild(s);
+        });
+    }
+
+    function loadCv(container) {
+        if (!container || cvLoading) return;
+        const status = container.querySelector(".cv-status");
+        const src = container.dataset.cvSrc;
+        cvLoading = loadScript(PDFJS + "pdf.min.js")
+            .then(() => {
+                pdfjsLib.GlobalWorkerOptions.workerSrc = PDFJS + "pdf.worker.min.js";
+                return pdfjsLib.getDocument(src).promise;
+            })
+            .then(async pdf => {
+                for (let n = 1; n <= pdf.numPages; n++) {
+                    const page = await pdf.getPage(n);
+                    // Render at a fixed high resolution; CSS scales it to the panel width.
+                    const scale = 1600 / page.getViewport({ scale: 1 }).width;
+                    const viewport = page.getViewport({ scale });
+                    const canvas = document.createElement("canvas");
+                    canvas.width = viewport.width;
+                    canvas.height = viewport.height;
+                    canvas.setAttribute("role", "img");
+                    canvas.setAttribute("aria-label", "CV page " + n + " of " + pdf.numPages);
+                    container.appendChild(canvas);
+                    await page.render({ canvasContext: canvas.getContext("2d"), viewport }).promise;
+                }
+                status.remove();
+            })
+            .catch(err => {
+                console.error(err);
+                cvLoading = null;
+                status.innerHTML = 'The CV could not be displayed here. <a href="' + src + '" target="_blank" rel="noopener">Open the PDF</a>.';
+            });
     }
 
     function close() {

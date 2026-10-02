@@ -522,13 +522,9 @@ html:not(.js) .panel-bar { display: none; }
     color: var(--muted);
 }
 
-/* ---- Profile: service & collaborators -------------------------------- */
+/* ---- Panel: collaborators & CV ---------------------------------------- */
 
-.home-block {
-    margin-top: 36px;
-    padding-top: 20px;
-    border-top: 1px solid var(--rule);
-}
+.home-block { margin-top: 40px; }
 .entries li {
     display: flex;
     align-items: baseline;
@@ -546,6 +542,19 @@ html:not(.js) .panel-bar { display: none; }
     text-align: right;
     font-family: var(--sans);
 }
+
+.home-block .label { margin-bottom: 8px; }
+
+.cv-pages canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: 16px;
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+}
+.cv-status { padding: 24px 0; }
 
 /* ---- Small screens ----------------------------------------------------- */
 

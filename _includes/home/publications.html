@@ -36,3 +36,14 @@
     {% endfor %}
 </ol>
 <p class="pub-empty" hidden>No papers match this filter.</p>
+
+{% if site.data.collaborators.collaborators %}
+<section class="home-block" aria-labelledby="collaborators-title">
+    <h2 id="collaborators-title" class="label">Collaborators &amp; Friends</h2>
+    <ul class="entries">
+        {% for person in site.data.collaborators.collaborators %}
+        <li><a href="{{ person.url }}" target="_blank" rel="noopener">{{ person.name }}</a><span class="fact-small">{{ person.affiliation }}</span></li>
+        {% endfor %}
+    </ul>
+</section>
+{% endif %}

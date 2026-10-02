@@ -18,6 +18,11 @@ layout: minimal
         <section data-view="publications" class="panel-view" aria-labelledby="publications-title">
             {% include home/publications.html %}
         </section>
+        {% if profile.cv_link %}
+        <section data-view="cv" class="panel-view" aria-labelledby="cv-title">
+            {% include home/cv.html %}
+        </section>
+        {% endif %}
     </aside>
 </div>
 
