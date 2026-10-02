@@ -17,18 +17,6 @@ labs:
     position: Semester Project
     supervisor: Prof. Boi Faltings
 
-  - name: Secure Learning Lab, UIUC
-    url: https://aisecure.github.io/GROUP/
-    duration: 2023
-    position: Remote Intern
-    supervisor: Prof. Bo Li
-
-  - name: CCVL (Computational Cognition, Vision, and Learning) Group, JHU
-    url: https://ccvl.jhu.edu/
-    duration: 2023
-    position: Summer Intern
-    supervisor: Prof. Alan Yuille
-
 collaborators:
   - name: Francesco Croce
     url: https://fra31.github.io/

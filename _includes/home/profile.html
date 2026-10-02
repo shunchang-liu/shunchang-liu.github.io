@@ -44,18 +44,27 @@
     </div>
     {% endif %}
 
-    {% if profile.intern %}
+    {% assign labs = site.data.collaborators.labs %}
+    {% if labs or profile.intern %}
     <div class="fact">
         <p class="label">Experience</p>
+        {% for lab in labs %}
+        <div class="exp-item">
+            <p class="exp-title"><a href="{{ lab.url }}" target="_blank" rel="noopener">{{ lab.name }}</a></p>
+            <p class="fact-small">{{ lab.position }} · {{ lab.duration }}</p>
+            <p class="fact-small">{{ lab.supervisor }}</p>
+        </div>
+        {% endfor %}
         {% for item in profile.intern %}
-        <p class="fact-title">{{ item.name }}</p>
-        {% if item.position %}<p class="fact-meta">{{ item.position }}</p>{% endif %}
-        <p class="fact-small">{{ item.date }}</p>
-        {% if item.achievements %}
-        <ul class="fact-links">
-            {% for ach in item.achievements %}<li><a href="{{ ach.link }}" target="_blank" rel="noopener">{{ ach.title }}</a></li>{% endfor %}
-        </ul>
-        {% endif %}
+        <div class="exp-item">
+            <p class="exp-title">{{ item.name }}</p>
+            <p class="fact-small">{% if item.position %}{{ item.position }} · {% endif %}{{ item.date }}</p>
+            {% if item.achievements %}
+            <ul class="fact-links">
+                {% for ach in item.achievements %}<li><a href="{{ ach.link }}" target="_blank" rel="noopener">{{ ach.title }}</a></li>{% endfor %}
+            </ul>
+            {% endif %}
+        </div>
         {% endfor %}
     </div>
     {% endif %}
