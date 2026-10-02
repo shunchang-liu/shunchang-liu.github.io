@@ -17,13 +17,10 @@
     const views = Array.from(panel.querySelectorAll(".panel-view"));
     const panelLinks = document.querySelectorAll("[data-panel-link]");
     let lastLink = null;
-    // On wide screens the page is an open book: the right page always shows a view.
-    const wide = window.matchMedia("(min-width: 1024px)");
     let shownView = null;
 
     function render(fromNavigation) {
-        const hashView = views.find(v => v.dataset.view === location.hash.slice(1));
-        const view = hashView || (wide.matches ? views[0] : null);
+        const view = views.find(v => v.dataset.view === location.hash.slice(1)) || null;
         const id = view ? view.dataset.view : "";
         document.body.classList.toggle("panel-open", Boolean(view));
         views.forEach(v => { v.hidden = v !== view; });
@@ -102,7 +99,6 @@
         if (e.key === "Escape" && location.hash) close();
     });
     window.addEventListener("hashchange", () => render(true));
-    wide.addEventListener("change", () => render(false));
     render(false);
 
     // ---- Publication filters ----------------------------------------------
