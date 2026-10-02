@@ -1,15 +1,15 @@
 /* Homepage theme with two color modes: pink (default) and blue ([data-theme="blue"]).
    Hues come from a reference poster (pink #f3d9e1 / rose #e8b0b8, sky #a0d8f8 /
-   blue #2878a8); page backgrounds are those hues mixed mostly with white. Text
+   blue #2878a8); page backgrounds are those hues mixed with 65 to 90% white. Text
    accents are slightly deeper so small text stays readable (>= 4.5:1).
    --swatch is the other mode's color, shown on the toggle. */
 
 :root {
-    --bg: #f8eaee;
-    --page-left: #f8eaee;
-    --page-right: #fbf4f6;
-    --desk: linear-gradient(120deg, #f5e1e7, #faf0f3);
-    --surface: #f3e0e6;
+    --bg: #fbf2f5;
+    --page-left: #fbf2f5;
+    --page-right: #fdf8fa;
+    --desk: linear-gradient(120deg, #f8eaee, #fcf6f8);
+    --surface: #faeef2;
     --ink: #2b1d2a;
     --ink-2: #4f3a4b;
     --muted: #725c6b;
@@ -19,7 +19,7 @@
     --link-rule: rgba(168, 64, 95, 0.35);
     --rule: rgba(43, 29, 42, 0.11);
     --rule-strong: rgba(43, 29, 42, 0.36);
-    --map-empty: #f1d7df;
+    --map-empty: #f7e6ec;
     --map-low: #e8b0b8;
     --map-high: #b03a62;
     --spine: rgba(43, 29, 42, 0.05);
@@ -31,11 +31,11 @@
 }
 
 :root[data-theme="blue"] {
-    --bg: #e4f4fd;
-    --page-left: #e4f4fd;
-    --page-right: #f0f9fe;
-    --desk: linear-gradient(120deg, #d4edfc, #ecf7fe);
-    --surface: #dcf0fc;
+    --bg: #eff8fe;
+    --page-left: #eff8fe;
+    --page-right: #f6fbfe;
+    --desk: linear-gradient(120deg, #e2f3fd, #f4fafe);
+    --surface: #e8f6fd;
     --ink: #14283a;
     --ink-2: #33495c;
     --muted: #4f6475;
@@ -45,7 +45,7 @@
     --link-rule: rgba(31, 103, 151, 0.35);
     --rule: rgba(20, 40, 58, 0.11);
     --rule-strong: rgba(20, 40, 58, 0.36);
-    --map-empty: #d4edfc;
+    --map-empty: #dff2fd;
     --map-low: #a0d8f8;
     --map-high: #2878a8;
     --spine: rgba(20, 40, 58, 0.05);
