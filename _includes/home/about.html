@@ -27,6 +27,17 @@
     </ul>
 </div>
 
+{% if site.data.collaborators.collaborators %}
+<section class="home-block" aria-labelledby="collaborators-title">
+    <h3 id="collaborators-title" class="label">Collaborators &amp; Friends</h3>
+    <ul class="entries">
+        {% for person in site.data.collaborators.collaborators %}
+        <li><a href="{{ person.url }}" target="_blank" rel="noopener">{{ person.name }}</a><span class="fact-small">{{ person.affiliation }}</span></li>
+        {% endfor %}
+    </ul>
+</section>
+{% endif %}
+
 <section class="home-block" aria-labelledby="yuebing-title">
     <h3 id="yuebing-title" class="label">Meet Yuebing (月饼)</h3>
     <div class="cat-grid">
