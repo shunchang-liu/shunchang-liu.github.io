@@ -3,21 +3,21 @@
    [data-theme="dark"] is opt-in. Change --accent / --accent-2 to re-theme. */
 
 :root {
-    --bg: #eef4fc;
-    --page-left: #eef4fc;
+    --bg: #e1f1fc;
+    --page-left: #e1f1fc;
     --page-right: #fcf0f5;
-    --desk: linear-gradient(120deg, #dfe9f8, #f7e3ec);
-    --surface: #e4e9f3;
+    --desk: linear-gradient(120deg, #cde7f8, #f7e3ec);
+    --surface: #d3e8f7;
     --ink: #1d2238;
     --ink-2: #41465c;
     --muted: #5f6675;
-    --accent: #2f4fb3;
+    --accent: #1d64a8;
     --accent-2: #b8336a;
     --accent-2-soft: rgba(184, 51, 106, 0.07);
-    --link-rule: rgba(47, 79, 179, 0.35);
+    --link-rule: rgba(29, 100, 168, 0.35);
     --rule: rgba(29, 34, 56, 0.12);
     --rule-strong: rgba(29, 34, 56, 0.38);
-    --map-low: #cdd7f3;
+    --map-low: #bfe0f6;
     --map-high: #b8336a;
     --spine: rgba(29, 34, 56, 0.06);
     --serif: "Newsreader", Georgia, "Times New Roman", serif;
@@ -27,18 +27,18 @@
 }
 
 :root[data-theme="dark"] {
-    --bg: #141b2e;
-    --page-left: #141b2e;
+    --bg: #10202f;
+    --page-left: #10202f;
     --page-right: #22172a;
-    --desk: linear-gradient(120deg, #0d1222, #1a1020);
+    --desk: linear-gradient(120deg, #0b1825, #1a1020);
     --surface: #222a40;
     --ink: #eceaf2;
     --ink-2: #c7c8d6;
     --muted: #9396a8;
-    --accent: #8fb0ff;
+    --accent: #8fc4ff;
     --accent-2: #ff8fc4;
     --accent-2-soft: rgba(255, 143, 196, 0.12);
-    --link-rule: rgba(143, 176, 255, 0.4);
+    --link-rule: rgba(143, 196, 255, 0.4);
     --rule: rgba(236, 234, 242, 0.12);
     --rule-strong: rgba(236, 234, 242, 0.38);
     --map-low: #2a3352;
@@ -384,10 +384,13 @@ html:not(.js) .panel-bar { display: none; }
 
 .panel-head {
     display: flex;
+    flex-wrap: wrap;
+    gap: 4px 16px;
     align-items: baseline;
     justify-content: space-between;
     margin: 0 0 28px;
 }
+.panel-head > .fact-small, .panel-head > a { white-space: nowrap; }
 .panel-title {
     font-size: 38px;
     line-height: 1.15;
