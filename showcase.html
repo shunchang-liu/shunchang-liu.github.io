@@ -16,11 +16,24 @@ permalink: /blog/
         </nav>
     </header>
 
-    <main class="coming-soon">
+    {% assign posts = site.data.blog.posts | sort: "date" | reverse %}
+    <main class="blog">
         <h1 class="panel-title page-title">Blog</h1>
+        {% if posts.size > 0 %}
+        <ol class="pub-list">
+            {% for post in posts %}
+            <li class="pub">
+                <p class="pub-venue">{{ post.date | date: "%b %Y" }} · {{ post.venue }}</p>
+                <h2 class="pub-title"><a href="{{ post.url }}" target="_blank" rel="noopener">{{ post.title }}<span class="arrow" aria-hidden="true">&nbsp;↗</span></a></h2>
+                {% if post.summary %}<p class="pub-summary">{{ post.summary }}</p>{% endif %}
+            </li>
+            {% endfor %}
+        </ol>
+        {% else %}
         <p class="eyebrow">Coming soon</p>
         <div class="prose">
             <p>My writing habits are still misaligned. Meanwhile, <a href="{{ '/#about' | relative_url }}">Yuebing</a> is happy to entertain you.</p>
         </div>
+        {% endif %}
     </main>
 </div>

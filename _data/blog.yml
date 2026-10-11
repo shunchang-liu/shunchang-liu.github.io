@@ -1,0 +1,7 @@
+# Blog posts, newest first. Each links to where the post is published.
+posts:
+  - title: "Narrow Multimodal Fine-Tuning Can Induce Emergent Misalignment"
+    url: https://www.lesswrong.com/posts/HJPJArDvcvRBkbaEa/narrow-multimodal-fine-tuning-can-induce-emergent
+    date: 2026-10-11
+    venue: LessWrong
+    summary: "A plain-language tour of our finding that narrow multimodal fine-tuning can make vision-language models broadly misaligned, and of what reduces it."

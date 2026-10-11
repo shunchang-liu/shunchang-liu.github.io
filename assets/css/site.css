@@ -635,8 +635,9 @@ html:not(.js) .panel-bar { display: none; }
 .page-nav .theme-toggle { margin: 0; }
 .page-title { margin: 48px 0 8px; }
 
-.coming-soon { max-width: 640px; }
-.coming-soon .eyebrow { margin-bottom: 20px; }
+.blog { max-width: 720px; }
+.blog .eyebrow { margin-bottom: 20px; }
+.blog .pub-list { margin-top: 24px; border-top: 1px solid var(--rule); }
 
 .prose p {
     font-family: var(--serif);
