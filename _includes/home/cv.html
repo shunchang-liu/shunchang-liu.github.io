@@ -1,4 +1,6 @@
-{%- assign cv_url = site.data.profile.cv_link | relative_url -%}
+{%- comment -%} A build-time version stops browsers from showing a cached older CV. {%- endcomment -%}
+{%- assign cv_version = site.time | date: "%Y%m%d%H%M" -%}
+{%- assign cv_url = site.data.profile.cv_link | relative_url | append: "?v=" | append: cv_version -%}
 <div class="panel-head">
     <h2 id="cv-title" class="panel-title">CV</h2>
     <a class="fact-small" href="{{ cv_url }}" download>Download PDF</a>
