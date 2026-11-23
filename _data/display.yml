@@ -11,7 +11,7 @@ publication_topics:
   - interpretability
   - multimodal models
   - adversarial robustness
-  - copyright & IP
+  - copyright
   - LLM evaluation
   - applied ML
 
@@ -23,7 +23,7 @@ chart_topics:
     color: "#2a78d6"
   - name: adversarial robustness
     color: "#eb6834"
-  - name: copyright & IP
+  - name: copyright
     color: "#1baf7a"
 
 # Feel free to replace the footer text if you would like to, but I will greatly appreciate it 

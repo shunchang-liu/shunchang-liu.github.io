@@ -13,7 +13,7 @@ pub_post:       ","
 pub_date:       "2025"
 cover:          /assets/images/covers/2025-p1.png
 topics:
-  - copyright & IP
+  - copyright
 summary:        "Builds CopyJudge, a VLM framework that assesses copyright infringement through multi-agent debate and reduces infringement risk in diffusion models through text-prompt and latent-noise optimization."
 authors:
   - <strong>Shunchang Liu</strong>* 
