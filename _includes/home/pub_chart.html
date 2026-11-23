@@ -8,8 +8,29 @@ Plot area: 480 x 280 inside a 560 x 340 viewBox (left margin 56, top margin 16).
     {%- if item.fondness and item.solidity -%}{%- assign scored = scored | push: item -%}{%- endif -%}
 {%- endfor -%}
 {%- if scored.size > 0 -%}
+{%- assign chart_topics = site.data.display.chart_topics -%}
+{%- assign topic_names = chart_topics | map: "name" -%}
+{%- assign has_other = false -%}
+{%- for item in scored -%}
+    {%- assign primary_topic = item.topics | first -%}
+    {%- unless topic_names contains primary_topic -%}{%- assign has_other = true -%}{%- endunless -%}
+{%- endfor -%}
 <figure class="pub-chart" aria-labelledby="pub-chart-title">
-    <figcaption id="pub-chart-title" class="label">My papers, as I see them</figcaption>
+    <div class="pub-chart-head">
+        <figcaption id="pub-chart-title" class="label">My papers, as I see them</figcaption>
+        <ul class="pub-chart-legend" aria-label="Topics">
+            {%- for topic in chart_topics -%}
+            {%- assign shown = false -%}
+            {%- for item in scored -%}{%- assign primary_topic = item.topics | first -%}{%- if primary_topic == topic.name -%}{%- assign shown = true -%}{%- endif -%}{%- endfor -%}
+            {%- if shown %}
+            <li><span class="swatch" style="--dot: {{ topic.color }}"></span>{{ topic.name }}</li>
+            {%- endif -%}
+            {%- endfor -%}
+            {%- if has_other %}
+            <li><span class="swatch"></span>other</li>
+            {%- endif %}
+        </ul>
+    </div>
     <svg viewBox="0 0 560 340" role="img" aria-labelledby="pub-chart-title">
         <g class="pub-chart-grid" aria-hidden="true">
             <line x1="56" y1="16" x2="56" y2="296"/>
@@ -34,8 +55,11 @@ Plot area: 480 x 280 inside a 560 x 340 viewBox (left margin 56, top margin 16).
         {%- assign cx = item.fondness | times: 48 | plus: 56 -%}
         {%- assign cy = 10 | minus: item.solidity | times: 28 | plus: 16 -%}
         {%- assign ly = cy | minus: 12 -%}
-        <a class="pub-chart-point" href="{{ primary }}" target="_blank" rel="noopener">
-            <title>{{ item.title | escape }}: love {{ item.fondness }}/10, solid {{ item.solidity }}/10</title>
+        {%- assign primary_topic = item.topics | first -%}
+        {%- assign topic_color = "" -%}
+        {%- for topic in chart_topics -%}{%- if topic.name == primary_topic -%}{%- assign topic_color = topic.color -%}{%- endif -%}{%- endfor %}
+        <a class="pub-chart-point" href="{{ primary }}" target="_blank" rel="noopener"{% if topic_color != "" %} style="--dot: {{ topic_color }}"{% endif %}>
+            <title>{{ item.title | escape }} ({{ primary_topic }}): love {{ item.fondness }}/10, solid {{ item.solidity }}/10</title>
             <circle class="hit" cx="{{ cx }}" cy="{{ cy }}" r="14"/>
             <circle class="dot" cx="{{ cx }}" cy="{{ cy }}" r="5"/>
             <text x="{{ cx }}" y="{{ ly }}" text-anchor="middle">{{ item.short_title | default: item.title }}</text>
@@ -44,9 +68,9 @@ Plot area: 480 x 280 inside a 560 x 340 viewBox (left margin 56, top margin 16).
     </svg>
     <div class="sr-only"><table>
         <caption>My papers, as I see them (0 to 10)</caption>
-        <tr><th scope="col">Paper</th><th scope="col">How much I love it</th><th scope="col">How solid it is</th></tr>
+        <tr><th scope="col">Paper</th><th scope="col">Topic</th><th scope="col">How much I love it</th><th scope="col">How solid it is</th></tr>
         {%- for item in scored %}
-        <tr><td>{{ item.title }}</td><td>{{ item.fondness }}</td><td>{{ item.solidity }}</td></tr>
+        <tr><td>{{ item.title }}</td><td>{{ item.topics | first }}</td><td>{{ item.fondness }}</td><td>{{ item.solidity }}</td></tr>
         {%- endfor %}
     </table></div>
 </figure>

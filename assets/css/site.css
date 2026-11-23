@@ -424,7 +424,28 @@ html:not(.js) .panel-bar { display: none; }
 /* ---- Panel: publications chart ---------------------------------------- */
 
 .pub-chart { margin: 0 0 32px; }
-.pub-chart .label { margin-bottom: 8px; }
+.pub-chart-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 6px 16px;
+    margin-bottom: 8px;
+}
+.pub-chart-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    font-size: 12px;
+    color: var(--muted);
+}
+.pub-chart-legend li { display: inline-flex; align-items: center; gap: 6px; }
+.pub-chart-legend .swatch {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--dot, var(--muted));
+}
 .pub-chart svg { display: block; width: 100%; height: auto; overflow: visible; }
 .pub-chart-grid line { stroke: var(--rule-strong); stroke-width: 1; }
 .pub-chart-grid .mid { stroke: var(--rule); }
@@ -433,7 +454,7 @@ html:not(.js) .panel-bar { display: none; }
 .pub-chart-point { text-decoration: none; }
 .pub-chart-point .hit { fill: transparent; }
 .pub-chart-point .dot {
-    fill: var(--accent-2);
+    fill: var(--dot, var(--muted));
     stroke: var(--page-right);
     stroke-width: 2;
     transition: r 0.15s;

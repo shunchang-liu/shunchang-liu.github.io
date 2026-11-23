@@ -15,6 +15,17 @@ publication_topics:
   - LLM evaluation
   - applied ML
 
+# Colors for the publications chart, keyed by a paper's first (primary) topic.
+# Fixed per topic so a dot never changes color when scores change. A scatter can
+# only keep three colors distinct for color-blind readers, so other topics are gray.
+chart_topics:
+  - name: alignment
+    color: "#2a78d6"
+  - name: adversarial robustness
+    color: "#eb6834"
+  - name: copyright & IP
+    color: "#1baf7a"
+
 # Feel free to replace the footer text if you would like to, but I will greatly appreciate it 
 # if you keep the link to the template so that more people can benefit from it. Thanks!
 footer_text: >-
