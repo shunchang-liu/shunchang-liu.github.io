@@ -447,8 +447,12 @@ html:not(.js) .panel-bar { display: none; }
     position: absolute;
     width: 1px;
     height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
     overflow: hidden;
     clip: rect(0 0 0 0);
+    clip-path: inset(50%);
     white-space: nowrap;
 }
 
@@ -727,6 +731,10 @@ html:not(.js) .panel-bar { display: none; }
         padding-top: 20px;
     }
     .panel-title { font-size: 32px; }
+    /* The chart scales down on phones; larger user-unit text keeps it readable. */
+    .pub-chart-axis text { font-size: 20px; }
+    .pub-chart-axis .axis-title { font-size: 21px; }
+    .pub-chart-point text { font-size: 25px; }
     .pub-title { font-size: 24px; }
     .pub-summary { font-size: 17.5px; }
 }

@@ -128,8 +128,61 @@
     document.addEventListener("keydown", e => {
         if (e.key === "Escape" && location.hash) close();
     });
+    // Labels need real text sizes, so place them once the chart is visible and fonts are in.
+    const placeLabelsWhenVisible = () => document.fonts.ready.then(placeChartLabels);
     window.addEventListener("hashchange", () => render(true));
+    window.addEventListener("hashchange", placeLabelsWhenVisible);
+    let labelResizeTimer;
+    window.addEventListener("resize", () => {
+        clearTimeout(labelResizeTimer);
+        labelResizeTimer = setTimeout(() => { chartLabelsPlaced = false; placeLabelsWhenVisible(); }, 200);
+    });
     render(false);
+    placeLabelsWhenVisible();
+
+    // ---- Publication chart labels ------------------------------------------
+    // Each label tries above, below, right, then left of its dot and keeps the first
+    // spot that overlaps no other dot or already placed label and stays inside the chart.
+    let chartLabelsPlaced = false;
+
+    function placeChartLabels() {
+        const svg = document.querySelector(".pub-chart svg");
+        if (!svg || chartLabelsPlaced || !svg.getBoundingClientRect().width) return;
+        const view = svg.viewBox.baseVal;
+        const points = Array.from(svg.querySelectorAll(".pub-chart-point")).map(el => {
+            const dot = el.querySelector(".dot");
+            return { el, text: el.querySelector("text"), x: dot.cx.baseVal.value, y: dot.cy.baseVal.value };
+        }).sort((a, b) => a.x - b.x);
+        const pad = 3;
+        const boxes = points.map(p => ({ owner: p, x: p.x - 7, y: p.y - 7, width: 14, height: 14 }));
+        const overlaps = (a, b) => a.x < b.x + b.width && b.x < a.x + a.width && a.y < b.y + b.height && b.y < a.y + a.height;
+        const spots = [
+            { dx: 0, dy: -12, anchor: "middle" },
+            { dx: 0, dy: 22, anchor: "middle" },
+            { dx: 11, dy: 4, anchor: "start" },
+            { dx: -11, dy: 4, anchor: "end" },
+        ];
+        points.forEach(p => {
+            let best = null;
+            for (const spot of spots) {
+                p.text.setAttribute("x", p.x + spot.dx);
+                p.text.setAttribute("y", p.y + spot.dy);
+                p.text.setAttribute("text-anchor", spot.anchor);
+                const b = p.text.getBBox();
+                const box = { owner: p, x: b.x - pad, y: b.y - pad, width: b.width + 2 * pad, height: b.height + 2 * pad };
+                const inside = box.x >= view.x && box.y >= view.y && box.x + box.width <= view.x + view.width;
+                const clashes = boxes.filter(o => o.owner !== p && overlaps(box, o)).length;
+                const score = clashes + (inside ? 0 : 1);
+                if (!best || score < best.score) best = { spot, box, score };
+                if (score === 0) break;
+            }
+            p.text.setAttribute("x", p.x + best.spot.dx);
+            p.text.setAttribute("y", p.y + best.spot.dy);
+            p.text.setAttribute("text-anchor", best.spot.anchor);
+            boxes.push(best.box);
+        });
+        chartLabelsPlaced = true;
+    }
 
     // ---- Publication filters ----------------------------------------------
     const items = Array.from(document.querySelectorAll(".pub"));

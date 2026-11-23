@@ -27,26 +27,27 @@ Plot area: 480 x 280 inside a 560 x 340 viewBox (left margin 56, top margin 16).
             <text x="296" y="336" text-anchor="middle" class="axis-title">How much I love it →</text>
             <text x="14" y="156" text-anchor="middle" class="axis-title" transform="rotate(-90 14 156)">How solid it is →</text>
         </g>
+        {%- comment -%} Default label spot is above the dot; site.js moves labels that would collide. {%- endcomment -%}
         {%- for item in scored -%}
         {%- assign primary = item.links.Paper -%}
         {%- if primary.url -%}{%- assign primary = primary.url -%}{%- endif -%}
         {%- assign cx = item.fondness | times: 48 | plus: 56 -%}
         {%- assign cy = 10 | minus: item.solidity | times: 28 | plus: 16 -%}
-        {%- if item.fondness > 7 -%}{%- assign anchor = "end" -%}{%- assign lx = cx | minus: 11 -%}{%- else -%}{%- assign anchor = "start" -%}{%- assign lx = cx | plus: 11 -%}{%- endif %}
+        {%- assign ly = cy | minus: 12 -%}
         <a class="pub-chart-point" href="{{ primary }}" target="_blank" rel="noopener">
             <title>{{ item.title | escape }}: love {{ item.fondness }}/10, solid {{ item.solidity }}/10</title>
             <circle class="hit" cx="{{ cx }}" cy="{{ cy }}" r="14"/>
             <circle class="dot" cx="{{ cx }}" cy="{{ cy }}" r="5"/>
-            <text x="{{ lx }}" y="{{ cy | plus: 4 }}" text-anchor="{{ anchor }}">{{ item.short_title | default: item.title }}</text>
+            <text x="{{ cx }}" y="{{ ly }}" text-anchor="middle">{{ item.short_title | default: item.title }}</text>
         </a>
         {%- endfor %}
     </svg>
-    <table class="sr-only">
+    <div class="sr-only"><table>
         <caption>My papers, as I see them (0 to 10)</caption>
         <tr><th scope="col">Paper</th><th scope="col">How much I love it</th><th scope="col">How solid it is</th></tr>
         {%- for item in scored %}
         <tr><td>{{ item.title }}</td><td>{{ item.fondness }}</td><td>{{ item.solidity }}</td></tr>
         {%- endfor %}
-    </table>
+    </table></div>
 </figure>
 {%- endif -%}

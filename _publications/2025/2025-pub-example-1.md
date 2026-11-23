@@ -2,6 +2,8 @@
 title:          "CopyJudge: Automated Copyright Infringement Identification
 and Mitigation in Text-to-Image Diffusion Models"
 short_title:    "CopyJudge"
+fondness:       5    # how much I love it (0-10), plotted on the publications chart
+solidity:       4    # how solid it is (0-10)
 date:           2025-07-06 00:01:00 +0800
 selected:       true
 pub:            "ACM International Conference on Multimedia (MM)"
