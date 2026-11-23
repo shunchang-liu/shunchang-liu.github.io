@@ -421,6 +421,37 @@ html:not(.js) .panel-bar { display: none; }
     letter-spacing: -0.02em;
 }
 
+/* ---- Panel: publications chart ---------------------------------------- */
+
+.pub-chart { margin: 0 0 32px; }
+.pub-chart .label { margin-bottom: 8px; }
+.pub-chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.pub-chart-grid line { stroke: var(--rule-strong); stroke-width: 1; }
+.pub-chart-grid .mid { stroke: var(--rule); }
+.pub-chart-axis text { font-family: var(--sans); font-size: 11px; fill: var(--muted); }
+.pub-chart-axis .axis-title { font-size: 12px; fill: var(--ink-2); }
+.pub-chart-point { text-decoration: none; }
+.pub-chart-point .hit { fill: transparent; }
+.pub-chart-point .dot {
+    fill: var(--accent-2);
+    stroke: var(--page-right);
+    stroke-width: 2;
+    transition: r 0.15s;
+}
+.pub-chart-point text { font-family: var(--serif); font-size: 15px; fill: var(--ink-2); }
+.pub-chart-point:hover .dot, .pub-chart-point:focus-visible .dot { r: 7; }
+.pub-chart-point:hover text, .pub-chart-point:focus-visible text { fill: var(--ink); }
+.pub-chart-point:focus-visible { outline: none; }
+.pub-chart-point:focus-visible .hit { stroke: var(--accent); stroke-width: 2; }
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
 /* ---- Panel: publications ----------------------------------------------- */
 
 .filter-head {

@@ -1,5 +1,6 @@
 ---
 title:          "The Biased Oracle: Assessing LLMs' Understandability and Empathy in Medical Diagnoses"
+short_title:    "Biased Oracle"
 date:           2025-10-29 00:01:00 +0800
 selected:       false
 pub:            "NeurIPS @GenAI4Health Workshop"

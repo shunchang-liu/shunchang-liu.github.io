@@ -1,0 +1,52 @@
+{%- comment -%}
+Scatter of the author's own papers: x = how much I love it, y = how solid it is.
+A paper is plotted when its front matter has both `fondness` and `solidity` (0 to 10).
+Plot area: 480 x 280 inside a 560 x 340 viewBox (left margin 56, top margin 16).
+{%- endcomment -%}
+{%- assign scored = "" | split: "" -%}
+{%- for item in include.pubs -%}
+    {%- if item.fondness and item.solidity -%}{%- assign scored = scored | push: item -%}{%- endif -%}
+{%- endfor -%}
+{%- if scored.size > 0 -%}
+<figure class="pub-chart" aria-labelledby="pub-chart-title">
+    <figcaption id="pub-chart-title" class="label">My papers, as I see them</figcaption>
+    <svg viewBox="0 0 560 340" role="img" aria-labelledby="pub-chart-title">
+        <g class="pub-chart-grid" aria-hidden="true">
+            <line x1="56" y1="16" x2="56" y2="296"/>
+            <line x1="56" y1="296" x2="536" y2="296"/>
+            <line x1="296" y1="16" x2="296" y2="296" class="mid"/>
+            <line x1="56" y1="156" x2="536" y2="156" class="mid"/>
+        </g>
+        <g class="pub-chart-axis" aria-hidden="true">
+            <text x="56" y="314" text-anchor="middle">0</text>
+            <text x="296" y="314" text-anchor="middle">5</text>
+            <text x="536" y="314" text-anchor="middle">10</text>
+            <text x="44" y="300" text-anchor="end">0</text>
+            <text x="44" y="160" text-anchor="end">5</text>
+            <text x="44" y="20" text-anchor="end">10</text>
+            <text x="296" y="336" text-anchor="middle" class="axis-title">How much I love it →</text>
+            <text x="14" y="156" text-anchor="middle" class="axis-title" transform="rotate(-90 14 156)">How solid it is →</text>
+        </g>
+        {%- for item in scored -%}
+        {%- assign primary = item.links.Paper -%}
+        {%- if primary.url -%}{%- assign primary = primary.url -%}{%- endif -%}
+        {%- assign cx = item.fondness | times: 48 | plus: 56 -%}
+        {%- assign cy = 10 | minus: item.solidity | times: 28 | plus: 16 -%}
+        {%- if item.fondness > 7 -%}{%- assign anchor = "end" -%}{%- assign lx = cx | minus: 11 -%}{%- else -%}{%- assign anchor = "start" -%}{%- assign lx = cx | plus: 11 -%}{%- endif %}
+        <a class="pub-chart-point" href="{{ primary }}" target="_blank" rel="noopener">
+            <title>{{ item.title | escape }}: love {{ item.fondness }}/10, solid {{ item.solidity }}/10</title>
+            <circle class="hit" cx="{{ cx }}" cy="{{ cy }}" r="14"/>
+            <circle class="dot" cx="{{ cx }}" cy="{{ cy }}" r="5"/>
+            <text x="{{ lx }}" y="{{ cy | plus: 4 }}" text-anchor="{{ anchor }}">{{ item.short_title | default: item.title }}</text>
+        </a>
+        {%- endfor %}
+    </svg>
+    <table class="sr-only">
+        <caption>My papers, as I see them (0 to 10)</caption>
+        <tr><th scope="col">Paper</th><th scope="col">How much I love it</th><th scope="col">How solid it is</th></tr>
+        {%- for item in scored %}
+        <tr><td>{{ item.title }}</td><td>{{ item.fondness }}</td><td>{{ item.solidity }}</td></tr>
+        {%- endfor %}
+    </table>
+</figure>
+{%- endif -%}

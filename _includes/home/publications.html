@@ -8,6 +8,8 @@
     <span class="fact-small">{{ oldest.date | date: "%Y" }}–{{ newest.date | date: "%Y" }}</span>
 </div>
 
+{% include home/pub_chart.html pubs=pubs %}
+
 <div class="filter-head">
     <p class="label">Research topics</p>
     <button type="button" class="all-papers" data-topic="all" aria-pressed="false">All papers <span class="count">{{ pubs.size }}</span></button>
