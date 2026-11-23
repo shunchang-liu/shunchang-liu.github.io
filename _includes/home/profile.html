@@ -24,7 +24,6 @@
 </ul>
 
 <p class="headline">{{ profile.headline }}</p>
-{% if profile.student_note %}<p class="student-note">{{ profile.student_note }}</p>{% endif %}
 
 <div class="facts">
     {% if profile.education %}
@@ -95,6 +94,8 @@
 </section>
 {% endif %}
 {% endif %}
+
+{% if profile.student_note %}<p class="student-note">{{ profile.student_note }}</p>{% endif %}
 
 <section class="visitors" aria-labelledby="visitors-title">
     <h2 id="visitors-title" class="label">Visitors</h2>
