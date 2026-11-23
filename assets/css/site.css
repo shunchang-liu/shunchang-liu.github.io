@@ -590,15 +590,24 @@ html:not(.js) .panel-bar { display: none; }
 
 .home-block .label { margin-bottom: 8px; }
 
-.cv-pages canvas {
-    display: block;
-    width: 100%;
-    height: auto;
+.cv-page {
+    position: relative;
     margin-bottom: 16px;
     background: #fff;
     border: 1px solid var(--rule);
     border-radius: 2px;
 }
+.cv-page canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.cv-link {
+    position: absolute;
+    border-radius: 2px;
+    transition: background-color 0.15s;
+}
+.cv-link:hover, .cv-link:focus-visible { background: var(--accent-2-soft); }
 .cv-status { padding: 24px 0; }
 
 /* ---- Standalone pages (blog) ------------------------------------------ */

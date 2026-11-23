@@ -56,6 +56,31 @@
         });
     }
 
+    // Overlay the PDF's own hyperlinks on a rendered page so they stay clickable.
+    // Positions are percentages of the page, so they track the canvas as CSS scales it.
+    async function addCvLinks(page, viewport, pageEl) {
+        const annotations = await page.getAnnotations();
+        annotations
+            .filter(a => a.subtype === "Link" && a.url && /^(https?:|mailto:)/i.test(a.url))
+            .forEach(a => {
+                const [x1, y1, x2, y2] = viewport.convertToViewportRectangle(a.rect);
+                const link = document.createElement("a");
+                link.className = "cv-link";
+                link.href = a.url;
+                if (!a.url.startsWith("mailto:")) {
+                    link.target = "_blank";
+                    link.rel = "noopener";
+                }
+                link.title = a.url;
+                link.setAttribute("aria-label", a.url);
+                link.style.left = (Math.min(x1, x2) / viewport.width * 100) + "%";
+                link.style.top = (Math.min(y1, y2) / viewport.height * 100) + "%";
+                link.style.width = (Math.abs(x2 - x1) / viewport.width * 100) + "%";
+                link.style.height = (Math.abs(y2 - y1) / viewport.height * 100) + "%";
+                pageEl.appendChild(link);
+            });
+    }
+
     function loadCv(container) {
         if (!container || cvLoading) return;
         const status = container.querySelector(".cv-status");
@@ -76,8 +101,12 @@
                     canvas.height = viewport.height;
                     canvas.setAttribute("role", "img");
                     canvas.setAttribute("aria-label", "CV page " + n + " of " + pdf.numPages);
-                    container.appendChild(canvas);
+                    const pageEl = document.createElement("div");
+                    pageEl.className = "cv-page";
+                    pageEl.appendChild(canvas);
+                    container.appendChild(pageEl);
                     await page.render({ canvasContext: canvas.getContext("2d"), viewport }).promise;
+                    await addCvLinks(page, viewport, pageEl);
                 }
                 status.remove();
             })
