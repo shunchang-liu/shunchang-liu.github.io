@@ -4,6 +4,12 @@ navbar_name: "Shunchang's Homepage"
 # One-line research statement on the homepage (an optional `eyebrow` line can go above the name)
 headline: >-
   I study why AI models become misaligned, and how to control them from first principles.
+# Short note shown under the headline (HTML allowed); remove to hide it
+student_note: >-
+  Our <a href="https://tml.epfl.ch/" target="_blank" rel="noopener">lab website</a> is a bit outdated.
+  If you'd like to do a project with me, such as a semester project, just
+  <a href="mailto:shunchangliu@outlook.com">email me</a>. Pestering is welcome!
+  I usually don't take remote interns, unless the project really excites me.
 
 positions:
 #- logo: /assets/images/badges/epfl-logo.svg  # Logo is optional

@@ -24,6 +24,7 @@
 </ul>
 
 <p class="headline">{{ profile.headline }}</p>
+{% if profile.student_note %}<p class="student-note">{{ profile.student_note }}</p>{% endif %}
 
 <div class="facts">
     {% if profile.education %}
