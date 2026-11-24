@@ -6,15 +6,13 @@
 {%- endif -%}
 
 <div class="identity">
-    <div>
+    <div class="identity-name">
         {% if profile.eyebrow %}<p class="eyebrow">{{ profile.eyebrow }}</p>{% endif %}
         <h1 class="name">{{ profile.primary_name }}</h1>
     </div>
     {% if profile.portrait_url %}
-    <img class="portrait" src="{{ profile.portrait_url | relative_url }}" alt="Portrait of {{ profile.primary_name }}" width="76" height="76">
+    <img class="portrait" src="{{ profile.portrait_url | relative_url }}" alt="Portrait of {{ profile.primary_name }}" width="88" height="88">
     {% endif %}
-</div>
-
 <ul class="contact">
     {% if profile.email %}<li><a href="mailto:{{ profile.email }}">{{ profile.email }}</a></li>{% endif %}
     {% if profile.gscholar %}<li><a href="{{ gscholar_url }}" target="_blank" rel="noopener">Scholar</a></li>{% endif %}
@@ -22,6 +20,7 @@
     {% if profile.github %}<li><a href="https://github.com/{{ profile.github }}" target="_blank" rel="noopener">GitHub</a></li>{% endif %}
     {% if profile.twitter %}<li><a href="https://twitter.com/{{ profile.twitter }}" target="_blank" rel="noopener">Twitter</a></li>{% endif %}
 </ul>
+</div>
 
 <p class="headline">{{ profile.headline }}</p>
 

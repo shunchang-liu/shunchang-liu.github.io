@@ -187,8 +187,8 @@ button {
 
 @media (min-width: 1024px) and (max-width: 1279.98px) {
     .profile .name { font-size: 48px; }
-    .profile .identity { gap: 16px; }
-    .profile .portrait { width: 64px; height: 64px; }
+    .profile .identity { column-gap: 16px; }
+    .profile .portrait { width: 72px; height: 72px; }
 }
 
 @media (max-width: 1023.98px) {
@@ -232,18 +232,27 @@ html:not(.js) .panel-bar { display: none; }
 
 /* ---- Profile column ---------------------------------------------------- */
 
+/* Name, contact row, and portrait share one grid. By default the portrait sits
+   beside the name. In .identity-tall (set by site.js when the contact row fits on
+   one line next to the photo) it spans from the top of the name to the bottom of
+   the contact row, and site.js sizes it to exactly that height. */
 .identity {
-    display: flex;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "name photo" "contact contact";
     align-items: center;
-    justify-content: space-between;
-    gap: 20px;
+    column-gap: 20px;
+    row-gap: 14px;
     padding-top: 24px;
-    margin-bottom: 14px;
 }
+.identity-name { grid-area: name; }
+.identity .contact { grid-area: contact; }
+.identity .portrait { grid-area: photo; }
+.identity-tall { grid-template-areas: "name photo" "contact photo"; }
+.identity-tall .portrait { align-self: start; }
 .portrait {
-    flex: none;
-    width: 76px;
-    height: 76px;
+    width: 88px;
+    height: 88px;
     margin-right: clamp(0px, 2.8vw, 40px);
     border-radius: 50%;
     object-fit: cover;
@@ -751,7 +760,7 @@ html:not(.js) .panel-bar { display: none; }
 
 @media (max-width: 560px) {
     .name { font-size: clamp(30px, 10vw, 42px); }
-    .identity { gap: 12px; }
+    .identity { column-gap: 12px; }
     .portrait { width: clamp(48px, 16vw, 60px); height: clamp(48px, 16vw, 60px); }
     .headline { font-size: 22px; margin: 26px 0 30px; }
     .facts { grid-template-columns: 1fr; gap: 22px; }

@@ -140,6 +140,53 @@
     render(false);
     placeLabelsWhenVisible();
 
+    // ---- Portrait spanning the name and contact row -------------------------
+    // When the contact row fits on one line beside the photo, size the photo to run
+    // from the top of the name's letters to the bottom of the contact row's letters.
+    // Otherwise keep the compact layout (photo beside the name, contact row below).
+    const inkCanvas = document.createElement("canvas").getContext("2d");
+
+    // Vertical extent of the inked letters on an element's first line, in viewport px.
+    // Falls back to the element box where the browser lacks font metrics.
+    function inkExtent(el) {
+        const cs = getComputedStyle(el);
+        const box = el.getBoundingClientRect();
+        inkCanvas.font = cs.fontStyle + " " + cs.fontWeight + " " + cs.fontSize + " " + cs.fontFamily;
+        const m = inkCanvas.measureText(el.textContent.replace(/\s+/g, " ").trim());
+        if (m.fontBoundingBoxAscent === undefined) return { top: box.top, bottom: box.bottom };
+        const lineHeight = parseFloat(cs.lineHeight);
+        const baseline = box.top + (lineHeight - m.fontBoundingBoxAscent - m.fontBoundingBoxDescent) / 2 + m.fontBoundingBoxAscent;
+        return { top: baseline - m.actualBoundingBoxAscent, bottom: baseline + m.actualBoundingBoxDescent };
+    }
+
+    function fitPortrait() {
+        const box = document.querySelector(".identity");
+        const img = box && box.querySelector(".portrait");
+        const name = box && box.querySelector(".name");
+        const contact = box && box.querySelector(".contact");
+        if (!img || !name || !contact) return;
+        box.classList.remove("identity-tall");
+        img.style.width = img.style.height = img.style.marginTop = "";
+        if (!box.getBoundingClientRect().width) return;
+        const oneLine = el => el.getBoundingClientRect().height < 1.6 * parseFloat(getComputedStyle(el).lineHeight);
+        box.classList.add("identity-tall");
+        for (let i = 0; i < 3; i++) {
+            const top = inkExtent(name).top;
+            const span = Math.round(inkExtent(contact).bottom - top);
+            img.style.marginTop = Math.round(top - box.querySelector(".identity-name").getBoundingClientRect().top) + "px";
+            if (Math.round(img.getBoundingClientRect().height) === span) break;
+            img.style.width = img.style.height = span + "px";
+        }
+        if (!oneLine(contact) || !oneLine(name)) {
+            box.classList.remove("identity-tall");
+            img.style.width = img.style.height = img.style.marginTop = "";
+        }
+    }
+    document.fonts.ready.then(fitPortrait);
+    let portraitTimer;
+    window.addEventListener("resize", () => { clearTimeout(portraitTimer); portraitTimer = setTimeout(fitPortrait, 150); });
+    window.addEventListener("hashchange", () => requestAnimationFrame(fitPortrait));
+
     // ---- Publication chart labels ------------------------------------------
     // Each label tries above, below, right, then left of its dot and keeps the first
     // spot that overlaps no other dot or already placed label and stays inside the chart.
