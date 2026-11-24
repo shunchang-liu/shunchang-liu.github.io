@@ -188,15 +188,32 @@
     window.addEventListener("hashchange", () => requestAnimationFrame(fitPortrait));
 
     // ---- Scrolling Education / Experience cards ------------------------------
-    // Fade the top edge once scrolled and the bottom edge until the end is reached.
+    // Fade the top edge once scrolled and the bottom edge until the end is reached,
+    // and show "N more ↓" (entries not fully visible below) as a clickable hint.
+    const hiddenBelow = el => Array.from(el.querySelectorAll(".exp-item"))
+        .filter(item => item.offsetTop + item.offsetHeight > el.scrollTop + el.clientHeight + 2);
+
     function updateFactFade(el) {
         const max = el.scrollHeight - el.clientHeight;
         el.classList.toggle("scrolled", el.scrollTop > 2);
         el.classList.toggle("at-end", el.scrollTop >= max - 2);
+        const more = el.parentElement.querySelector(".fact-more");
+        if (!more) return;
+        const n = hiddenBelow(el).length;
+        more.hidden = n === 0;
+        more.textContent = n + " more ↓";
+        more.setAttribute("aria-label", "Show the next entry (" + n + " more)");
     }
     const factScrolls = document.querySelectorAll(".fact-scroll");
     const updateAllFades = () => factScrolls.forEach(updateFactFade);
-    factScrolls.forEach(el => el.addEventListener("scroll", () => updateFactFade(el), { passive: true }));
+    factScrolls.forEach(el => {
+        el.addEventListener("scroll", () => updateFactFade(el), { passive: true });
+        const more = el.parentElement.querySelector(".fact-more");
+        if (more) more.addEventListener("click", () => {
+            const next = hiddenBelow(el)[0];
+            if (next) el.scrollTo({ top: Math.min(next.offsetTop, el.scrollHeight - el.clientHeight), behavior: "smooth" });
+        });
+    });
     updateAllFades();
     document.fonts.ready.then(updateAllFades);
     window.addEventListener("resize", updateAllFades);

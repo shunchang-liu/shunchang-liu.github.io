@@ -27,7 +27,7 @@
 <div class="facts">
     {% if profile.education %}
     <div class="fact">
-        <p class="label">Education</p>
+        <div class="fact-head"><p class="label">Education</p><button type="button" class="fact-more" hidden></button></div>
         <div class="fact-scroll" tabindex="0" aria-label="Education (scrollable)">
             {% for item in profile.education %}
             <div class="exp-item">
@@ -44,7 +44,7 @@
     {% assign labs = site.data.collaborators.labs %}
     {% if labs or profile.intern %}
     <div class="fact">
-        <p class="label">Experience</p>
+        <div class="fact-head"><p class="label">Experience</p><button type="button" class="fact-more" hidden></button></div>
         <div class="fact-scroll" tabindex="0" aria-label="Experience (scrollable)">
             {% for lab in labs %}
             <div class="exp-item">
