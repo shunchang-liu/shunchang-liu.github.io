@@ -319,19 +319,22 @@ html:not(.js) .panel-bar { display: none; }
 }
 .fact .fact-small { margin-top: 2px; }
 
-.more > summary {
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 12.5px;
-    color: var(--muted);
-    list-style: none;
-    cursor: pointer;
+/* Education and Experience scroll inside a fixed height. site.js toggles
+   .scrolled and .at-end so the edge fades show only where more content is hidden. */
+.fact-scroll {
+    --fade-top: 0px;
+    --fade-bottom: 28px;
+    max-height: 9.5rem;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: none;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 var(--fade-top), #000 calc(100% - var(--fade-bottom)), transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0, #000 var(--fade-top), #000 calc(100% - var(--fade-bottom)), transparent 100%);
 }
-.more > summary::-webkit-details-marker { display: none; }
-.more > summary::after { content: " ⌄"; }
-.more[open] > summary::after { content: " ⌃"; }
-.more-item { margin-top: 14px; }
+.fact-scroll::-webkit-scrollbar { display: none; }
+.fact-scroll.scrolled { --fade-top: 20px; }
+.fact-scroll.at-end { --fade-bottom: 0px; }
+.fact-scroll:focus-visible { outline-offset: 4px; }
 .tag {
     display: inline-block;
     margin-left: 4px;

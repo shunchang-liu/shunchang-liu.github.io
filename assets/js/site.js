@@ -187,6 +187,20 @@
     window.addEventListener("resize", () => { clearTimeout(portraitTimer); portraitTimer = setTimeout(fitPortrait, 150); });
     window.addEventListener("hashchange", () => requestAnimationFrame(fitPortrait));
 
+    // ---- Scrolling Education / Experience cards ------------------------------
+    // Fade the top edge once scrolled and the bottom edge until the end is reached.
+    function updateFactFade(el) {
+        const max = el.scrollHeight - el.clientHeight;
+        el.classList.toggle("scrolled", el.scrollTop > 2);
+        el.classList.toggle("at-end", el.scrollTop >= max - 2);
+    }
+    const factScrolls = document.querySelectorAll(".fact-scroll");
+    const updateAllFades = () => factScrolls.forEach(updateFactFade);
+    factScrolls.forEach(el => el.addEventListener("scroll", () => updateFactFade(el), { passive: true }));
+    updateAllFades();
+    document.fonts.ready.then(updateAllFades);
+    window.addEventListener("resize", updateAllFades);
+
     // ---- Publication chart labels ------------------------------------------
     // Each label tries above, below, right, then left of its dot and keeps the first
     // spot that overlaps no other dot or already placed label and stays inside the chart.
